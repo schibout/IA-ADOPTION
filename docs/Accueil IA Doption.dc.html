@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_ds/modernist-7def5187-3e35-4ab8-9b2d-fd890da0bf6b/styles.css">
+<script src="_ds/modernist-7def5187-3e35-4ab8-9b2d-fd890da0bf6b/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: #e8e8e6; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity: .7; }
+  [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  [data-reveal].is-in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1; transform: none; transition: none; } }
+  @keyframes iad-flow { to { stroke-dashoffset: -240; } }
+  @keyframes iad-pulse { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+</style>
+</helmet>
+
+<section style="padding: 56px 56px 120px; font-family: 'Inter', sans-serif;">
+  <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px;">
+    <span style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: #6b6b66;">Tour 1 — Accueil IA Doption, deux chartes</span>
+  </div>
+  <p style="max-width: 720px; margin: 0 0 40px; font-size: 14px; line-height: 1.6; color: #55554f;">Même arborescence, mêmes 9 sections (§4). <a href="#1a" style="text-decoration: underline;">1a</a> applique la charte proposée au §6 du cahier des charges. <a href="#1b" style="text-decoration: underline;">1b</a> applique le design system Modernist. Contenu de remplissage, structure définitive.</p>
+
+  <div style="display: flex; gap: 72px; align-items: flex-start; flex-wrap: nowrap; width: max-content;">
+
+    <div id="1a" style="width: 1180px; flex: 0 0 1180px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: #101B33; color: #00D084; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px;">1a</span>
+        <span style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500; color: #101B33;">Clarté technologique — charte du cahier des charges</span>
+      </div>
+
+      <div style="position: relative; background: #FAFAF7; color: #101B33; overflow: hidden; box-shadow: 0 30px 80px rgba(16,27,51,.14); font-family: 'Inter', sans-serif;">
+
+        <header style="position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(250,250,247,.88); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(16,27,51,.08);">
+          <a href="#1a" style="display: flex; align-items: baseline; gap: 2px; font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -.02em;">
+            <span style="color: #00D084;">IA</span><span>&nbsp;Doption</span>
+          </a>
+          <nav style="display: flex; align-items: center; gap: 30px; font-size: 14px; font-weight: 500;">
+            <a href="#1a">{{ tA.nav1 }}</a>
+            <a href="#1a">{{ tA.nav2 }}</a>
+            <a href="#1a">{{ tA.nav3 }}</a>
+            <a href="#1a">{{ tA.nav4 }}</a>
+            <a href="#1a">{{ tA.nav5 }}</a>
+            <div style="display: flex; border: 1px solid rgba(16,27,51,.14); font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .04em;">
+              <button type="button" onClick="{{ setFr }}" style="{{ aFr }}">FR</button>
+              <button type="button" onClick="{{ setEn }}" style="{{ aEn }}">EN</button>
+            </div>
+            <a href="#1a" style="padding: 11px 18px; background: #00D084; color: #04231A; font-weight: 600;" style-hover="background: #00b972;">{{ tA.cta }}</a>
+          </nav>
+        </header>
+
+        <div style="position: relative; padding: 96px 48px 88px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; border-bottom: 1px solid rgba(16,27,51,.08);">
+          <div data-reveal>
+            <span style="display: inline-block; padding: 6px 12px; background: rgba(91,79,233,.1); color: #4A3FD4; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;">Audit · Agents · Automatisation · SaaS</span>
+            <h1 style="margin: 22px 0 20px; font-family: 'Space Grotesk', sans-serif; font-size: 60px; line-height: 1.02; letter-spacing: -.03em; font-weight: 700; text-wrap: balance;">{{ tA.h1 }}</h1>
+            <p style="margin: 0 0 32px; max-width: 30em; font-size: 18px; line-height: 1.62; color: #48536B;">{{ tA.sub }}</p>
+            <div style="display: flex; gap: 14px; align-items: center;">
+              <a href="#1a" style="padding: 15px 26px; background: #00D084; color: #04231A; font-weight: 600; font-size: 15px;" style-hover="background: #00b972;">{{ tA.cta }}</a>
+              <a href="#1a" style="padding: 15px 26px; border: 1px solid rgba(16,27,51,.18); font-weight: 600; font-size: 15px;" style-hover="border-color: #101B33;">{{ tA.cta2 }}</a>
+            </div>
+          </div>
+          <div data-reveal style="position: relative; height: 340px; background: #101B33; overflow: hidden;">
+            {{ flowA }}
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid rgba(16,27,51,.08);">
+          <div data-reveal style="padding: 34px 32px; border-right: 1px solid rgba(16,27,51,.08);">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 38px; font-weight: 700; letter-spacing: -.02em;">4—6</div>
+            <div style="margin-top: 6px; font-size: 13px; color: #6B7590;">semaines pour un premier cas d'usage</div>
+          </div>
+          <div data-reveal style="padding: 34px 32px; border-right: 1px solid rgba(16,27,51,.08);">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 38px; font-weight: 700; letter-spacing: -.02em;">15<span style="color: #00D084;">+</span></div>
+            <div style="margin-top: 6px; font-size: 13px; color: #6B7590;">ans d'accompagnement de dirigeants</div>
+          </div>
+          <div data-reveal style="padding: 34px 32px; border-right: 1px solid rgba(16,27,51,.08);">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 38px; font-weight: 700; letter-spacing: -.02em;">100<span style="color: #00D084;">%</span></div>
+            <div style="margin-top: 6px; font-size: 13px; color: #6B7590;">données hébergées en Europe</div>
+          </div>
+          <div data-reveal style="padding: 34px 32px;">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 38px; font-weight: 700; letter-spacing: -.02em;">9</div>
+            <div style="margin-top: 6px; font-size: 13px; color: #6B7590;">activités au catalogue</div>
+          </div>
+        </div>
+
+        <div style="padding: 88px 48px; border-bottom: 1px solid rgba(16,27,51,.08);">
+          <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 44px;">
+            <div>
+              <span style="font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #00A66A;">Les 4 piliers</span>
+              <h2 style="margin: 14px 0 0; font-family: 'Space Grotesk', sans-serif; font-size: 40px; line-height: 1.1; letter-spacing: -.025em; font-weight: 700;">Quatre façons d'entrer dans le sujet</h2>
+            </div>
+            <a href="#1a" style="font-size: 14px; font-weight: 600; color: #00A66A; white-space: nowrap;">Tous les services →</a>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+            <a href="#1a" data-reveal style="display: block; padding: 34px; background: #fff; border: 1px solid rgba(16,27,51,.1);" style-hover="border-color: #00D084; transform: translateY(-3px);">
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; color: #00A66A;">01</div>
+              <h3 style="margin: 16px 0 12px; font-family: 'Space Grotesk', sans-serif; font-size: 24px; letter-spacing: -.02em;">Audit &amp; conseil en stratégie IA</h3>
+              <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #5A6580;">Texte de remplissage décrivant le diagnostic, la priorisation des cas d'usage par ROI et la feuille de route remise au dirigeant.</p>
+            </a>
+            <a href="#1a" data-reveal style="display: block; padding: 34px; background: #fff; border: 1px solid rgba(16,27,51,.1);" style-hover="border-color: #00D084; transform: translateY(-3px);">
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; color: #00A66A;">02</div>
+              <h3 style="margin: 16px 0 12px; font-family: 'Space Grotesk', sans-serif; font-size: 24px; letter-spacing: -.02em;">Agents IA</h3>
+              <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #5A6580;">Texte de remplissage décrivant les assistants autonomes connectés aux outils métiers, leurs garde-fous et leur supervision.</p>
+            </a>
+            <a href="#1a" data-reveal style="display: block; padding: 34px; background: #fff; border: 1px solid rgba(16,27,51,.1);" style-hover="border-color: #00D084; transform: translateY(-3px);">
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; color: #00A66A;">03</div>
+              <h3 style="margin: 16px 0 12px; font-family: 'Space Grotesk', sans-serif; font-size: 24px; letter-spacing: -.02em;">Automatisation</h3>
+              <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #5A6580;">Texte de remplissage décrivant la cartographie des processus puis l'automatisation des tâches répétitives du back-office.</p>
+            </a>
+            <a href="#1a" data-reveal style="display: block; padding: 34px; background: #fff; border: 1px solid rgba(16,27,51,.1);" style-hover="border-color: #00D084; transform: translateY(-3px);">
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; color: #00A66A;">04</div>
+              <h3 style="margin: 16px 0 12px; font-family: 'Space Grotesk', sans-serif; font-size: 24px; letter-spacing: -.02em;">SaaS sur mesure</h3>
+              <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #5A6580;">Texte de remplissage décrivant le cycle complet, du cadrage au produit hébergé et maintenu par l'agence.</p>
+            </a>
+          </div>
+        </div>
+
+        <div style="padding: 88px 48px; background: #101B33; color: #F4F6FB;">
+          <div data-reveal style="margin-bottom: 48px;">
+            <span style="font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #00D084;">La méthode</span>
+            <h2 style="margin: 14px 0 0; font-family: 'Space Grotesk', sans-serif; font-size: 40px; line-height: 1.1; letter-spacing: -.025em; font-weight: 700;">Comment ça marche</h2>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;">
+            <div data-reveal style="padding-right: 28px; border-top: 2px solid #00D084;">
+              <div style="padding-top: 20px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; letter-spacing: .1em; color: #00D084;">ÉTAPE 1</div>
+              <h3 style="margin: 10px 0 10px; font-family: 'Space Grotesk', sans-serif; font-size: 21px;">Audit</h3>
+              <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #A7B2C9;">Texte de remplissage sur l'état des lieux des processus, données et outils.</p>
+            </div>
+            <div data-reveal style="padding-right: 28px; border-top: 2px solid rgba(255,255,255,.16);">
+              <div style="padding-top: 20px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; letter-spacing: .1em; color: #7C88A3;">ÉTAPE 2</div>
+              <h3 style="margin: 10px 0 10px; font-family: 'Space Grotesk', sans-serif; font-size: 21px;">Pilote</h3>
+              <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #A7B2C9;">Texte de remplissage sur le premier cas d'usage livré et mesuré.</p>
+            </div>
+            <div data-reveal style="padding-right: 28px; border-top: 2px solid rgba(255,255,255,.16);">
+              <div style="padding-top: 20px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; letter-spacing: .1em; color: #7C88A3;">ÉTAPE 3</div>
+              <h3 style="margin: 10px 0 10px; font-family: 'Space Grotesk', sans-serif; font-size: 21px;">Déploiement</h3>
+              <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #A7B2C9;">Texte de remplissage sur la mise en production et la formation des équipes.</p>
+            </div>
+            <div data-reveal style="border-top: 2px solid rgba(255,255,255,.16);">
+              <div style="padding-top: 20px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; letter-spacing: .1em; color: #7C88A3;">ÉTAPE 4</div>
+              <h3 style="margin: 10px 0 10px; font-family: 'Space Grotesk', sans-serif; font-size: 21px;">Suivi</h3>
+              <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #A7B2C9;">Texte de remplissage sur la supervision continue et l'amélioration des agents.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 88px 48px; border-bottom: 1px solid rgba(16,27,51,.08);">
+          <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 36px;">
+            <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 34px; letter-spacing: -.025em;">Catalogue d'activités</h2>
+            <a href="#1a" style="font-size: 14px; font-weight: 600; color: #00A66A; white-space: nowrap;">Les 9 activités →</a>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(16,27,51,.1);">
+            <div data-reveal style="padding: 26px; background: #FAFAF7;">
+              <h4 style="margin: 0 0 8px; font-family: 'Space Grotesk', sans-serif; font-size: 17px;">Audit de maturité IA</h4>
+              <p style="margin: 0 0 14px; font-size: 14px; line-height: 1.6; color: #5A6580;">Texte de remplissage court.</p>
+              <span style="font-size: 12px; font-weight: 600; color: #4A3FD4;">2–3 semaines</span>
+            </div>
+            <div data-reveal style="padding: 26px; background: #FAFAF7;">
+              <h4 style="margin: 0 0 8px; font-family: 'Space Grotesk', sans-serif; font-size: 17px;">Programme « IA Doption »</h4>
+              <p style="margin: 0 0 14px; font-size: 14px; line-height: 1.6; color: #5A6580;">Texte de remplissage court.</p>
+              <span style="font-size: 12px; font-weight: 600; color: #4A3FD4;">90 jours</span>
+            </div>
+            <div data-reveal style="padding: 26px; background: #FAFAF7;">
+              <h4 style="margin: 0 0 8px; font-family: 'Space Grotesk', sans-serif; font-size: 17px;">Ateliers dirigeants</h4>
+              <p style="margin: 0 0 14px; font-size: 14px; line-height: 1.6; color: #5A6580;">Texte de remplissage court.</p>
+              <span style="font-size: 12px; font-weight: 600; color: #4A3FD4;">0,5 jour</span>
+            </div>
+            <div data-reveal style="padding: 26px; background: #FAFAF7;">
+              <h4 style="margin: 0 0 8px; font-family: 'Space Grotesk', sans-serif; font-size: 17px;">Formation des équipes</h4>
+              <p style="margin: 0 0 14px; font-size: 14px; line-height: 1.6; color: #5A6580;">Texte de remplissage court.</p>
+              <span style="font-size: 12px; font-weight: 600; color: #4A3FD4;">1–2 jours</span>
+            </div>
+            <div data-reveal style="padding: 26px; background: #FAFAF7;">
+              <h4 style="margin: 0 0 8px; font-family: 'Space Grotesk', sans-serif; font-size: 17px;">RAG documentaire</h4>
+              <p style="margin: 0 0 14px; font-size: 14px; line-height: 1.6; color: #5A6580;">Texte de remplissage court.</p>
+              <span style="font-size: 12px; font-weight: 600; color: #4A3FD4;">4–6 semaines</span>
+            </div>
+            <div data-reveal style="padding: 26px; background: #FAFAF7;">
+              <h4 style="margin: 0 0 8px; font-family: 'Space Grotesk', sans-serif; font-size: 17px;">Conformité RGPD / AI Act</h4>
+              <p style="margin: 0 0 14px; font-size: 14px; line-height: 1.6; color: #5A6580;">Texte de remplissage court.</p>
+              <span style="font-size: 12px; font-weight: 600; color: #4A3FD4;">Mission ponctuelle</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 72px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; background: #fff; border-bottom: 1px solid rgba(16,27,51,.08);">
+          <div data-reveal>
+            <span style="font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #00A66A;">Démo en direct</span>
+            <h2 style="margin: 14px 0 14px; font-family: 'Space Grotesk', sans-serif; font-size: 34px; letter-spacing: -.025em;">Le chatbot en bas à droite est notre travail</h2>
+            <p style="margin: 0 0 24px; font-size: 16px; line-height: 1.65; color: #5A6580;">Texte de remplissage invitant le visiteur à tester l'agent, avec mention explicite « réponses générées par IA ».</p>
+            <a href="#1a" style="padding: 13px 22px; border: 1px solid #101B33; font-weight: 600; font-size: 15px; display: inline-block;" style-hover="background: #101B33; color: #FAFAF7;">Tester l'agent</a>
+          </div>
+          <div data-reveal style="border: 1px solid rgba(16,27,51,.12); background: #FAFAF7;">
+            <div style="padding: 14px 18px; border-bottom: 1px solid rgba(16,27,51,.1); display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600;">
+              <span style="width: 8px; height: 8px; background: #00D084; border-radius: 50%;"></span>Agent IA Doption · démonstration
+            </div>
+            <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px;">
+              <div style="align-self: flex-start; max-width: 78%; padding: 12px 14px; background: #fff; border: 1px solid rgba(16,27,51,.1); font-size: 14px; line-height: 1.55;">Bonjour, je suis un système d'IA. Texte de remplissage.</div>
+              <div style="align-self: flex-end; max-width: 78%; padding: 12px 14px; background: #101B33; color: #F4F6FB; font-size: 14px; line-height: 1.55;">Question de remplissage du visiteur.</div>
+              <div style="align-self: flex-start; max-width: 78%; padding: 12px 14px; background: #fff; border: 1px solid rgba(16,27,51,.1); font-size: 14px; line-height: 1.55;">Réponse de remplissage, puis proposition de rendez-vous.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 88px 48px; border-bottom: 1px solid rgba(16,27,51,.08);">
+          <h2 data-reveal style="margin: 0 0 40px; font-family: 'Space Grotesk', sans-serif; font-size: 34px; letter-spacing: -.025em;">Les fondateurs</h2>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+            <div data-reveal style="display: flex; gap: 22px; padding: 28px; background: #fff; border: 1px solid rgba(16,27,51,.1);">
+              <div style="flex: 0 0 96px; height: 120px; background: #E7E9EE; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #8A93A8; text-align: center; line-height: 1.4;">photo<br>à fournir</div>
+              <div>
+                <h3 style="margin: 0 0 4px; font-family: 'Space Grotesk', sans-serif; font-size: 20px;">Hamid Hidja</h3>
+                <div style="font-size: 13px; color: #00A66A; font-weight: 600; margin-bottom: 10px;">Cofondateur — stratégie &amp; conseil</div>
+                <p style="margin: 0 0 12px; font-size: 14px; line-height: 1.6; color: #5A6580;">Texte de remplissage de 4 à 5 lignes reprenant la biographie courte.</p>
+                <a href="#1a" style="font-size: 13px; font-weight: 600;">LinkedIn ↗</a>
+              </div>
+            </div>
+            <div data-reveal style="display: flex; gap: 22px; padding: 28px; background: #fff; border: 1px solid rgba(16,27,51,.1);">
+              <div style="flex: 0 0 96px; height: 120px; background: #E7E9EE; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #8A93A8; text-align: center; line-height: 1.4;">photo<br>à fournir</div>
+              <div>
+                <h3 style="margin: 0 0 4px; font-family: 'Space Grotesk', sans-serif; font-size: 20px;">Samir Chibout</h3>
+                <div style="font-size: 13px; color: #00A66A; font-weight: 600; margin-bottom: 10px;">Cofondateur — ingénierie &amp; intégration</div>
+                <p style="margin: 0 0 12px; font-size: 14px; line-height: 1.6; color: #5A6580;">Texte de remplissage de 4 à 5 lignes reprenant la biographie courte.</p>
+                <a href="#1a" style="font-size: 13px; font-weight: 600;">LinkedIn ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 88px 48px; border-bottom: 1px solid rgba(16,27,51,.08);">
+          <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 32px;">
+            <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 34px; letter-spacing: -.025em;">Derniers articles</h2>
+            <a href="#1a" style="font-size: 14px; font-weight: 600; color: #00A66A;">Ressources →</a>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            <a href="#1a" data-reveal style="display: block;">
+              <div style="height: 150px; background: linear-gradient(135deg, #101B33, #2A2160);"></div>
+              <div style="padding: 18px 0 0;">
+                <div style="font-size: 12px; font-weight: 600; color: #4A3FD4; margin-bottom: 8px;">CAS D'USAGE · 6 min</div>
+                <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 18px; line-height: 1.3;">Titre d'article de remplissage sur l'automatisation</h3>
+              </div>
+            </a>
+            <a href="#1a" data-reveal style="display: block;">
+              <div style="height: 150px; background: linear-gradient(135deg, #0C3D2E, #101B33);"></div>
+              <div style="padding: 18px 0 0;">
+                <div style="font-size: 12px; font-weight: 600; color: #4A3FD4; margin-bottom: 8px;">GUIDE · 9 min</div>
+                <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 18px; line-height: 1.3;">Titre d'article de remplissage sur les agents IA</h3>
+              </div>
+            </a>
+            <a href="#1a" data-reveal style="display: block;">
+              <div style="height: 150px; background: linear-gradient(135deg, #2A2160, #0C3D2E);"></div>
+              <div style="padding: 18px 0 0;">
+                <div style="font-size: 12px; font-weight: 600; color: #4A3FD4; margin-bottom: 8px;">RÉGLEMENTATION · 4 min</div>
+                <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 18px; line-height: 1.3;">Titre d'article de remplissage sur l'AI Act</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div data-reveal style="padding: 76px 48px; background: #00D084; color: #04231A; display: flex; align-items: center; justify-content: space-between; gap: 40px;">
+          <div>
+            <h2 style="margin: 0 0 10px; font-family: 'Space Grotesk', sans-serif; font-size: 40px; letter-spacing: -.03em;">Parlons de votre projet</h2>
+            <p style="margin: 0; font-size: 17px; max-width: 34em; line-height: 1.55; color: #0A3A2C;">Texte de remplissage : appel découverte de 30 minutes, sans engagement.</p>
+          </div>
+          <a href="#1a" style="padding: 17px 30px; background: #04231A; color: #00D084; font-weight: 600; font-size: 16px; white-space: nowrap;">Réserver un appel</a>
+        </div>
+
+        <footer style="padding: 40px 48px; background: #101B33; color: #8A96AF; display: flex; justify-content: space-between; font-size: 13px;">
+          <span>© 2026 IA Doption</span>
+          <div style="display: flex; gap: 22px;">
+            <a href="#1a">Mentions légales</a>
+            <a href="#1a">Confidentialité</a>
+            <a href="#1a">Cookies</a>
+          </div>
+        </footer>
+
+        <div style="position: sticky; bottom: 24px; z-index: 30; display: flex; justify-content: flex-end; padding: 0 24px; margin-top: -76px; pointer-events: none;">
+          <button type="button" style="pointer-events: auto; display: flex; align-items: center; gap: 10px; padding: 14px 20px; background: #101B33; color: #fff; border: none; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 12px 30px rgba(16,27,51,.3);" style-hover="background: #1A2947;">
+            <span style="width: 8px; height: 8px; background: #00D084; border-radius: 50%;"></span>Poser une question
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="1b" style="width: 1180px; flex: 0 0 1180px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: #ec3013; color: #fff; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 14px;">1b</span>
+        <span style="font-family: 'Archivo', sans-serif; font-size: 14px; font-weight: 600; color: #201e1d;">Modernist — grille apparente, rouge sur blanc</span>
+      </div>
+
+      <div style="position: relative; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); overflow: hidden; box-shadow: 0 30px 80px rgba(32,30,29,.16);">
+
+        <header style="position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; background: var(--color-bg); border-bottom: 2px solid var(--color-divider);">
+          <a href="#1b" style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; letter-spacing: -.01em; text-transform: uppercase;"><span style="color: var(--color-accent);">IA</span> DOPTION</a>
+          <nav style="display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 500; font-family: var(--font-heading);">
+            <a href="#1b">{{ tB.nav1 }}</a>
+            <a href="#1b">{{ tB.nav2 }}</a>
+            <a href="#1b">{{ tB.nav3 }}</a>
+            <a href="#1b">{{ tB.nav4 }}</a>
+            <a href="#1b">{{ tB.nav5 }}</a>
+            <div style="display: flex; border: 2px solid var(--color-divider); font-family: var(--font-heading); font-size: 12px; font-weight: 700;">
+              <button type="button" onClick="{{ setFrB }}" style="{{ bFr }}">FR</button>
+              <button type="button" onClick="{{ setEnB }}" style="{{ bEn }}">EN</button>
+            </div>
+            <a href="#1b" class="btn btn-primary">{{ tB.cta }}</a>
+          </nav>
+        </header>
+
+        <div style="display: grid; grid-template-columns: 1.1fr .9fr; border-bottom: 2px solid var(--color-divider);">
+          <div data-reveal style="padding: 80px 40px 72px; border-right: 2px solid var(--color-divider);">
+            <span class="tag tag-accent">Audit · Agents · Automatisation · SaaS</span>
+            <h1 style="margin: 24px 0 20px; font-family: var(--font-heading); font-size: 62px; line-height: .98; letter-spacing: -.035em; font-weight: 800; text-transform: uppercase;">{{ tB.h1 }}</h1>
+            <p style="margin: 0 0 32px; max-width: 26em; font-size: 18px; line-height: 1.55; color: var(--color-neutral-700);">{{ tB.sub }}</p>
+            <div style="display: flex; gap: 12px;">
+              <a href="#1b" class="btn btn-primary">{{ tB.cta }}</a>
+              <a href="#1b" class="btn btn-secondary">{{ tB.cta2 }}</a>
+            </div>
+          </div>
+          <div data-reveal style="position: relative; background: var(--color-neutral-900); min-height: 380px; overflow: hidden;">
+            {{ flowB }}
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 2px solid var(--color-divider);">
+          <div data-reveal style="padding: 30px 28px; border-right: 2px solid var(--color-divider);">
+            <div style="font-family: var(--font-heading); font-size: 40px; font-weight: 800; letter-spacing: -.03em;">4—6</div>
+            <div style="margin-top: 4px; font-size: 13px; color: var(--color-neutral-700);">semaines pour un premier cas d'usage</div>
+          </div>
+          <div data-reveal style="padding: 30px 28px; border-right: 2px solid var(--color-divider);">
+            <div style="font-family: var(--font-heading); font-size: 40px; font-weight: 800; letter-spacing: -.03em; color: var(--color-accent);">15+</div>
+            <div style="margin-top: 4px; font-size: 13px; color: var(--color-neutral-700);">ans d'accompagnement de dirigeants</div>
+          </div>
+          <div data-reveal style="padding: 30px 28px; border-right: 2px solid var(--color-divider);">
+            <div style="font-family: var(--font-heading); font-size: 40px; font-weight: 800; letter-spacing: -.03em;">100%</div>
+            <div style="margin-top: 4px; font-size: 13px; color: var(--color-neutral-700);">données hébergées en Europe</div>
+          </div>
+          <div data-reveal style="padding: 30px 28px;">
+            <div style="font-family: var(--font-heading); font-size: 40px; font-weight: 800; letter-spacing: -.03em;">9</div>
+            <div style="margin-top: 4px; font-size: 13px; color: var(--color-neutral-700);">activités au catalogue</div>
+          </div>
+        </div>
+
+        <div style="padding: 76px 40px; border-bottom: 2px solid var(--color-divider);">
+          <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 40px;">
+            <div>
+              <span style="font-family: var(--font-heading); font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--color-accent-700);">Les 4 piliers</span>
+              <h2 style="margin: 12px 0 0; font-family: var(--font-heading); font-size: 42px; line-height: 1.02; letter-spacing: -.03em; font-weight: 800; text-transform: uppercase;">Quatre façons d'entrer</h2>
+            </div>
+            <a href="#1b" class="btn btn-ghost">Tous les services</a>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 2px solid var(--color-divider); border-left: 2px solid var(--color-divider);">
+            <a href="#1b" data-reveal style="display: block; padding: 28px 24px 32px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider);" style-hover="background: var(--color-accent-100);">
+              <div style="font-family: var(--font-heading); font-size: 13px; font-weight: 700; color: var(--color-accent);">01</div>
+              <h3 style="margin: 14px 0 10px; font-family: var(--font-heading); font-size: 20px; letter-spacing: -.02em;">Audit &amp; conseil</h3>
+              <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-neutral-700);">Texte de remplissage sur le diagnostic et la feuille de route.</p>
+            </a>
+            <a href="#1b" data-reveal style="display: block; padding: 28px 24px 32px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider);" style-hover="background: var(--color-accent-100);">
+              <div style="font-family: var(--font-heading); font-size: 13px; font-weight: 700; color: var(--color-accent);">02</div>
+              <h3 style="margin: 14px 0 10px; font-family: var(--font-heading); font-size: 20px; letter-spacing: -.02em;">Agents IA</h3>
+              <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-neutral-700);">Texte de remplissage sur les assistants autonomes supervisés.</p>
+            </a>
+            <a href="#1b" data-reveal style="display: block; padding: 28px 24px 32px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider);" style-hover="background: var(--color-accent-100);">
+              <div style="font-family: var(--font-heading); font-size: 13px; font-weight: 700; color: var(--color-accent);">03</div>
+              <h3 style="margin: 14px 0 10px; font-family: var(--font-heading); font-size: 20px; letter-spacing: -.02em;">Automatisation</h3>
+              <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-neutral-700);">Texte de remplissage sur les processus répétitifs traités.</p>
+            </a>
+            <a href="#1b" data-reveal style="display: block; padding: 28px 24px 32px; border-right: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider);" style-hover="background: var(--color-accent-100);">
+              <div style="font-family: var(--font-heading); font-size: 13px; font-weight: 700; color: var(--color-accent);">04</div>
+              <h3 style="margin: 14px 0 10px; font-family: var(--font-heading); font-size: 20px; letter-spacing: -.02em;">SaaS sur mesure</h3>
+              <p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-neutral-700);">Texte de remplissage sur le cycle complet de développement.</p>
+            </a>
+          </div>
+        </div>
+
+        <div data-reveal style="padding: 72px 40px; background: var(--color-accent); color: #fff; border-bottom: 2px solid var(--color-divider);">
+          <span style="font-family: var(--font-heading); font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;">La méthode</span>
+          <h2 style="margin: 14px 0 40px; font-family: var(--font-heading); font-size: 46px; line-height: 1; letter-spacing: -.035em; font-weight: 800; text-transform: uppercase; max-width: 20em;">Audit → Pilote → Déploiement → Suivi</h2>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 2px solid rgba(255,255,255,.5);">
+            <div style="padding: 22px 24px 0 0;">
+              <div style="font-family: var(--font-heading); font-size: 13px; font-weight: 700; letter-spacing: .1em;">01 AUDIT</div>
+              <p style="margin: 10px 0 0; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.9);">Texte de remplissage sur l'état des lieux.</p>
+            </div>
+            <div style="padding: 22px 24px 0 0;">
+              <div style="font-family: var(--font-heading); font-size: 13px; font-weight: 700; letter-spacing: .1em;">02 PILOTE</div>
+              <p style="margin: 10px 0 0; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.9);">Texte de remplissage sur le cas d'usage livré.</p>
+            </div>
+            <div style="padding: 22px 24px 0 0;">
+              <div style="font-family: var(--font-heading); font-size: 13px; font-weight: 700; letter-spacing: .1em;">03 DÉPLOIEMENT</div>
+              <p style="margin: 10px 0 0; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.9);">Texte de remplissage sur la mise en production.</p>
+            </div>
+            <div style="padding: 22px 0 0 0;">
+              <div style="font-family: var(--font-heading); font-size: 13px; font-weight: 700; letter-spacing: .1em;">04 SUIVI</div>
+              <p style="margin: 10px 0 0; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.9);">Texte de remplissage sur la supervision continue.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 76px 40px; border-bottom: 2px solid var(--color-divider);">
+          <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 32px;">
+            <h2 style="margin: 0; font-family: var(--font-heading); font-size: 36px; letter-spacing: -.03em; font-weight: 800; text-transform: uppercase;">Catalogue d'activités</h2>
+            <a href="#1b" class="btn btn-ghost">Les 9 activités</a>
+          </div>
+          <table class="table" data-reveal style="width: 100%;">
+            <thead>
+              <tr><th style="text-align: left;">Activité</th><th style="text-align: left;">Description</th><th style="text-align: left;">Format</th></tr>
+            </thead>
+            <tbody>
+              <tr><td style="font-weight: 600;">Audit de maturité IA</td><td style="color: var(--color-neutral-700);">Texte de remplissage court.</td><td>2–3 semaines</td></tr>
+              <tr><td style="font-weight: 600;">Programme « IA Doption »</td><td style="color: var(--color-neutral-700);">Texte de remplissage court.</td><td>90 jours</td></tr>
+              <tr><td style="font-weight: 600;">Ateliers dirigeants</td><td style="color: var(--color-neutral-700);">Texte de remplissage court.</td><td>0,5 jour</td></tr>
+              <tr><td style="font-weight: 600;">Formation des équipes</td><td style="color: var(--color-neutral-700);">Texte de remplissage court.</td><td>1–2 jours</td></tr>
+              <tr><td style="font-weight: 600;">RAG documentaire interne</td><td style="color: var(--color-neutral-700);">Texte de remplissage court.</td><td>4–6 semaines</td></tr>
+              <tr><td style="font-weight: 600;">Conformité RGPD / AI Act</td><td style="color: var(--color-neutral-700);">Texte de remplissage court.</td><td>Mission ponctuelle</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; border-bottom: 2px solid var(--color-divider);">
+          <div data-reveal style="padding: 68px 40px; border-right: 2px solid var(--color-divider);">
+            <span style="font-family: var(--font-heading); font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--color-accent-700);">Démo en direct</span>
+            <h2 style="margin: 12px 0 14px; font-family: var(--font-heading); font-size: 34px; letter-spacing: -.03em; font-weight: 800; text-transform: uppercase;">Le chatbot est notre travail</h2>
+            <p style="margin: 0 0 24px; font-size: 16px; line-height: 1.6; color: var(--color-neutral-700);">Texte de remplissage invitant à tester l'agent, avec mention « réponses générées par IA ».</p>
+            <a href="#1b" class="btn btn-secondary">Tester l'agent</a>
+          </div>
+          <div data-reveal style="padding: 40px;">
+            <div style="border: 2px solid var(--color-divider); background: var(--color-surface, #fff);">
+              <div style="padding: 12px 16px; border-bottom: 2px solid var(--color-divider); font-family: var(--font-heading); font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                <span style="width: 8px; height: 8px; background: var(--color-accent);"></span>AGENT IA DOPTION · DÉMONSTRATION
+              </div>
+              <div style="padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+                <div style="align-self: flex-start; max-width: 80%; padding: 11px 14px; border: 2px solid var(--color-divider); font-size: 14px; line-height: 1.5;">Bonjour, je suis un système d'IA. Texte de remplissage.</div>
+                <div style="align-self: flex-end; max-width: 80%; padding: 11px 14px; background: var(--color-accent); color: #fff; font-size: 14px; line-height: 1.5;">Question de remplissage du visiteur.</div>
+                <div style="align-self: flex-start; max-width: 80%; padding: 11px 14px; border: 2px solid var(--color-divider); font-size: 14px; line-height: 1.5;">Réponse de remplissage, puis proposition de rendez-vous.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 76px 40px; border-bottom: 2px solid var(--color-divider);">
+          <h2 data-reveal style="margin: 0 0 36px; font-family: var(--font-heading); font-size: 36px; letter-spacing: -.03em; font-weight: 800; text-transform: uppercase;">Les fondateurs</h2>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 2px solid var(--color-divider);">
+            <div data-reveal style="display: flex; gap: 24px; padding: 32px 32px 32px 0; border-right: 2px solid var(--color-divider);">
+              <div class="grayscale" style="flex: 0 0 100px; height: 128px; background: var(--color-neutral-200); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--color-neutral-700); text-align: center; line-height: 1.4;">photo<br>à fournir</div>
+              <div>
+                <h3 style="margin: 0 0 4px; font-family: var(--font-heading); font-size: 20px; font-weight: 700;">Hamid Hidja</h3>
+                <div style="font-family: var(--font-heading); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 10px;">Stratégie &amp; conseil</div>
+                <p style="margin: 0 0 12px; font-size: 14px; line-height: 1.6; color: var(--color-neutral-700);">Texte de remplissage de 4 à 5 lignes reprenant la biographie courte.</p>
+                <a href="#1b" style="font-family: var(--font-heading); font-size: 13px; font-weight: 700; color: var(--color-accent-700);">LINKEDIN ↗</a>
+              </div>
+            </div>
+            <div data-reveal style="display: flex; gap: 24px; padding: 32px 0 32px 32px;">
+              <div class="grayscale" style="flex: 0 0 100px; height: 128px; background: var(--color-neutral-200); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--color-neutral-700); text-align: center; line-height: 1.4;">photo<br>à fournir</div>
+              <div>
+                <h3 style="margin: 0 0 4px; font-family: var(--font-heading); font-size: 20px; font-weight: 700;">Samir Chibout</h3>
+                <div style="font-family: var(--font-heading); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 10px;">Ingénierie &amp; intégration</div>
+                <p style="margin: 0 0 12px; font-size: 14px; line-height: 1.6; color: var(--color-neutral-700);">Texte de remplissage de 4 à 5 lignes reprenant la biographie courte.</p>
+                <a href="#1b" style="font-family: var(--font-heading); font-size: 13px; font-weight: 700; color: var(--color-accent-700);">LINKEDIN ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding: 76px 40px; border-bottom: 2px solid var(--color-divider);">
+          <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 30px;">
+            <h2 style="margin: 0; font-family: var(--font-heading); font-size: 36px; letter-spacing: -.03em; font-weight: 800; text-transform: uppercase;">Derniers articles</h2>
+            <a href="#1b" class="btn btn-ghost">Ressources</a>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+            <a href="#1b" data-reveal class="card">
+              <div class="card-kicker">Cas d'usage · 6 min</div>
+              <div class="card-title">Titre d'article de remplissage sur l'automatisation</div>
+              <div class="card-body">Chapô de remplissage en deux lignes.</div>
+            </a>
+            <a href="#1b" data-reveal class="card">
+              <div class="card-kicker">Guide · 9 min</div>
+              <div class="card-title">Titre d'article de remplissage sur les agents IA</div>
+              <div class="card-body">Chapô de remplissage en deux lignes.</div>
+            </a>
+            <a href="#1b" data-reveal class="card">
+              <div class="card-kicker">Réglementation · 4 min</div>
+              <div class="card-title">Titre d'article de remplissage sur l'AI Act</div>
+              <div class="card-body">Chapô de remplissage en deux lignes.</div>
+            </a>
+          </div>
+        </div>
+
+        <div data-reveal style="padding: 84px 40px; background: var(--color-neutral-900); color: var(--color-bg); display: flex; align-items: flex-end; justify-content: space-between; gap: 40px;">
+          <div>
+            <h2 style="margin: 0 0 12px; font-family: var(--font-heading); font-size: 52px; line-height: .98; letter-spacing: -.04em; font-weight: 800; text-transform: uppercase;">Parlons de<br>votre projet</h2>
+            <p style="margin: 0; font-size: 17px; max-width: 32em; line-height: 1.5; color: var(--color-neutral-300);">Texte de remplissage : appel découverte de 30 minutes, sans engagement.</p>
+          </div>
+          <a href="#1b" class="btn btn-primary" style="white-space: nowrap;">Réserver un appel</a>
+        </div>
+
+        <footer style="padding: 32px 40px; display: flex; justify-content: space-between; font-family: var(--font-heading); font-size: 13px; color: var(--color-neutral-700); border-top: 2px solid var(--color-divider);">
+          <span>© 2026 IA Doption</span>
+          <div style="display: flex; gap: 22px;">
+            <a href="#1b">Mentions légales</a>
+            <a href="#1b">Confidentialité</a>
+            <a href="#1b">Cookies</a>
+          </div>
+        </footer>
+
+        <div style="position: sticky; bottom: 24px; z-index: 30; display: flex; justify-content: flex-end; padding: 0 24px; margin-top: -72px; pointer-events: none;">
+          <button type="button" style="pointer-events: auto; display: flex; align-items: center; gap: 10px; padding: 14px 20px; background: var(--color-accent); color: #fff; border: none; font-family: var(--font-heading); font-size: 14px; font-weight: 700; cursor: pointer;" style-hover="background: var(--color-accent-600);">
+            <span style="width: 8px; height: 8px; background: #fff;"></span>POSER UNE QUESTION
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:2520,&quot;height&quot;:1600}}">
+const STR = {
+  fr: {
+    nav1: "Services", nav2: "Activités IA", nav3: "Méthode", nav4: "Ressources", nav5: "À propos",
+    cta: "Réserver un appel", cta2: "Voir la méthode",
+    h1: "L'IA adoptée, pas subie.",
+    sub: "Texte de remplissage de deux lignes portant la promesse de l'agence et le bénéfice pour le dirigeant de PME."
+  },
+  en: {
+    nav1: "Services", nav2: "AI activities", nav3: "Method", nav4: "Resources", nav5: "About",
+    cta: "Book a call", cta2: "See the method",
+    h1: "AI adopted, not imposed.",
+    sub: "Placeholder two-line subtitle carrying the agency promise and the benefit for the SME leader."
+  }
+};
+
+class Component extends DCLogic {
+  state = { langA: "fr", langB: "fr" };
+
+  componentDidMount() {
+    const reveal = () => {
+      const els = Array.from(this.el ? this.el.querySelectorAll("[data-reveal]") : document.querySelectorAll("[data-reveal]"));
+      if (!("IntersectionObserver" in window)) { els.forEach(e => e.classList.add("is-in")); return; }
+      const io = new IntersectionObserver(entries => {
+        entries.forEach((en, i) => {
+          if (en.isIntersecting) {
+            const el = en.target;
+            setTimeout(() => el.classList.add("is-in"), i * 60);
+            io.unobserve(el);
+          }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+      els.forEach(e => io.observe(e));
+      setTimeout(() => els.forEach(e => e.classList.add("is-in")), 4000);
+    };
+    requestAnimationFrame(reveal);
+  }
+
+  segA(active) {
+    return {
+      padding: "9px 12px", border: "none", cursor: "pointer",
+      fontFamily: "'Space Grotesk', sans-serif", fontSize: "12px", fontWeight: 600, letterSpacing: ".04em",
+      background: active ? "#101B33" : "transparent", color: active ? "#00D084" : "#101B33"
+    };
+  }
+  segB(active) {
+    return {
+      padding: "9px 12px", border: "none", cursor: "pointer",
+      fontFamily: "var(--font-heading)", fontSize: "12px", fontWeight: 700,
+      background: active ? "var(--color-accent)" : "transparent", color: active ? "#fff" : "var(--color-text)"
+    };
+  }
+
+  flow(stroke, dot) {
+    const e = React.createElement;
+    const paths = [
+      "M0 60 C 90 60, 120 130, 210 130 S 300 60, 400 60",
+      "M0 130 C 100 130, 140 200, 240 200 S 320 130, 400 130",
+      "M0 200 C 80 200, 130 270, 220 270 S 310 200, 400 200"
+    ];
+    return e("svg", { viewBox: "0 0 400 330", preserveAspectRatio: "xMidYMid slice", style: { width: "100%", height: "100%", display: "block" } },
+      paths.map((d, i) => e("path", {
+        key: "p" + i, d, fill: "none", stroke, strokeWidth: 1.5,
+        strokeDasharray: "8 10",
+        style: { animation: `iad-flow ${9 + i * 2}s linear infinite` }
+      })),
+      [[210, 130], [240, 200], [220, 270], [90, 60]].map((c, i) => e("circle", {
+        key: "c" + i, cx: c[0], cy: c[1], r: 4, fill: dot,
+        style: { animation: `iad-pulse ${2.4 + i * 0.5}s ease-in-out infinite` }
+      }))
+    );
+  }
+
+  renderVals() {
+    return {
+      tA: STR[this.state.langA],
+      tB: STR[this.state.langB],
+      setFr: () => this.setState({ langA: "fr" }),
+      setEn: () => this.setState({ langA: "en" }),
+      setFrB: () => this.setState({ langB: "fr" }),
+      setEnB: () => this.setState({ langB: "en" }),
+      aFr: this.segA(this.state.langA === "fr"),
+      aEn: this.segA(this.state.langA === "en"),
+      bFr: this.segB(this.state.langB === "fr"),
+      bEn: this.segB(this.state.langB === "en"),
+      flowA: this.flow("rgba(0,208,132,.55)", "#00D084"),
+      flowB: this.flow("rgba(236,48,19,.75)", "#ec3013")
+    };
+  }
+}
+
+</script>
+</body>
+</html>

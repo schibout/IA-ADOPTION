@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IAADOPTION — Performance et création de valeur des PME par l'IA</title>
+<meta name="description" content="Nous aidons les dirigeants de PME à créer de la valeur concrète par l'IA : diagnostic, cas d'usage ciblés, résultats mesurables en 30 à 90 jours. Premier diagnostic gratuit.">
+<link rel="canonical" href="https://iaadoption.ai/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="IAADOPTION — Performance et création de valeur des PME par l'IA">
+<meta property="og:description" content="Diagnostic, cas d'usage ciblés, résultats mesurables en 30 à 90 jours. Premier diagnostic gratuit.">
+<meta property="og:url" content="https://iaadoption.ai/">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#F0EDE6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231A1A1A'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-size='28' fill='%23F0EDE6'%3EIA%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "IAADOPTION",
+  "url": "https://iaadoption.ai/",
+  "email": "contact@iaadoption.ai",
+  "description": "Conseil et déploiement de solutions IA pour PME : diagnostic, automatisation des fonctions support, amplification de la capacité commerciale.",
+  "founder": [
+    {"@type": "Person", "name": "Hamid Hidja", "sameAs": "https://www.linkedin.com/in/hamid-hidja-38206413/"},
+    {"@type": "Person", "name": "Samir Chibout", "sameAs": "https://www.linkedin.com/in/samir-chibout/"}
+  ],
+  "areaServed": "FR"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Combien coûte un accompagnement IA pour une PME ?", "acceptedAnswer": {"@type": "Answer", "text": "Le premier échange de 30 minutes est gratuit. Le diagnostic IA est à prix fixe (5 000 à 8 000 €), la mission ciblée à périmètre défini (15 000 à 40 000 €)."}},
+    {"@type": "Question", "name": "Les données de l'entreprise sont-elles en sécurité ?", "acceptedAnswer": {"@type": "Answer", "text": "Les solutions sont hébergées en Europe et configurées pour que les données ne servent jamais à entraîner des modèles publics. Chaque déploiement inclut une analyse RGPD."}},
+    {"@type": "Question", "name": "Faut-il une DSI pour déployer l'IA dans une PME ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Les solutions s'intègrent aux outils existants (messagerie, CRM, tableur, ERP) sans refonte informatique et restent pilotables par les équipes métier."}},
+    {"@type": "Question", "name": "Quand voit-on des résultats ?", "acceptedAnswer": {"@type": "Answer", "text": "Les indicateurs sont définis avant chaque intervention et les déploiements produisent des preuves mesurables dans les 30 à 90 premiers jours."}}
+  ]
+}
+</script>
+<style>
+/* System font stack — no external dependencies */
+:root {
+  --serif: 'Palatino Linotype', 'Palatino', 'Book Antiqua', 'Georgia', serif;
+  --sans: -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+</style>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F0EDE6;--cream-d:#E4E0D8;--cream-m:#EAE6DE;
+  --ink:#1A1A1A;--grey:#888;--grey-l:#BBB;--grey-f:#DDDBD5;
+  --serif:'Palatino Linotype','Palatino','Book Antiqua','Georgia',serif;
+  --sans:-apple-system,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --ease:.4s cubic-bezier(.25,.46,.45,.94);
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(240,237,230,.94);backdrop-filter:blur(12px);border-bottom:.5px solid var(--grey-f);padding:0 5vw;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nb{display:flex;flex-direction:column}
+.nb-name{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--ink);letter-spacing:-.01em;line-height:1}
+.nb-sub{font-size:7px;letter-spacing:.22em;color:var(--grey);text-transform:uppercase;margin-top:2px}
+.nl{display:flex;align-items:center;gap:32px;list-style:none}
+.nl a{font-size:12px;color:var(--grey);text-decoration:none;letter-spacing:.04em;transition:color var(--ease)}
+.nl a:hover{color:var(--ink)}
+.nl .cta{background:var(--ink);color:var(--cream)!important;padding:9px 20px;font-size:10px!important;letter-spacing:.15em!important;text-transform:uppercase}
+@media(max-width:800px){.nl{display:none}}
+
+/* HERO */
+.hero{min-height:100vh;padding:128px 5vw 80px;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-wm{position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-family:var(--serif);font-size:clamp(160px,26vw,360px);font-weight:300;color:rgba(0,0,0,.04);line-height:1;user-select:none;pointer-events:none;letter-spacing:-.04em}
+.hero-in{max-width:720px;position:relative;z-index:2}
+.eyebrow{font-size:10px;letter-spacing:.32em;color:var(--grey);text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:'';width:28px;height:.5px;background:var(--grey)}
+h1{font-family:var(--serif);font-size:clamp(44px,7.5vw,90px);font-weight:400;line-height:1.04;color:var(--ink);letter-spacing:-.025em;margin-bottom:20px}
+h1 em{font-style:italic;font-weight:300;color:var(--grey)}
+.hero-desc{font-size:15px;color:var(--grey);max-width:500px;line-height:1.85;margin-bottom:48px}
+.hero-desc strong{color:var(--ink);font-weight:500}
+.hero-ctas{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.btn-ink{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);background:var(--ink);padding:16px 36px;text-decoration:none;transition:opacity var(--ease);display:inline-block}
+.btn-ink:hover{opacity:.72}
+.btn-g{font-size:11px;color:var(--grey);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color var(--ease)}
+.btn-g:hover{color:var(--ink)}
+.btn-g::after{content:'→';font-size:15px;transition:transform var(--ease)}
+.btn-g:hover::after{transform:translateX(4px)}
+
+/* STATS */
+.stats{background:var(--ink);padding:52px 5vw;display:grid;grid-template-columns:repeat(3,1fr);gap:1px}
+.stat{padding:20px 28px;border-right:.5px solid rgba(255,255,255,.07)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:var(--serif);font-size:clamp(36px,4.5vw,56px);font-weight:400;color:var(--cream);line-height:1;margin-bottom:8px}
+.stat-l{font-size:11px;color:rgba(255,255,255,.38);letter-spacing:.05em;line-height:1.5}
+@media(max-width:600px){.stats{grid-template-columns:1fr}}
+
+/* SECTIONS */
+.sec{padding:96px 5vw}
+.sec-label{font-size:9px;letter-spacing:.32em;color:var(--grey);text-transform:uppercase;margin-bottom:52px;display:flex;align-items:center;gap:14px}
+.sec-label::after{content:'';flex:1;height:.5px;background:var(--grey-f)}
+h2.sec-t{font-family:var(--serif);font-size:clamp(32px,4.5vw,54px);font-weight:400;color:var(--ink);line-height:1.1;margin-bottom:14px}
+.sec-sub{font-size:14px;color:var(--grey);line-height:1.8;max-width:540px}
+
+/* PDV */
+.pdv{background:var(--ink)}
+.pdv .sec-label{color:rgba(255,255,255,.28)}
+.pdv .sec-label::after{background:rgba(255,255,255,.1)}
+.pdv-intro{font-family:var(--serif);font-size:clamp(22px,3vw,36px);font-weight:400;color:var(--cream);line-height:1.25;max-width:680px;margin-bottom:64px}
+.pdv-intro em{font-style:italic;color:rgba(255,255,255,.42)}
+.pdv-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.pdv-bloc{background:rgba(255,255,255,.04);border:.5px solid rgba(255,255,255,.07);padding:48px}
+.pdv-num{font-family:var(--serif);font-size:52px;font-weight:300;color:rgba(255,255,255,.07);line-height:1;margin-bottom:-4px}
+.pdv-titre{font-family:var(--serif);font-size:clamp(18px,2vw,24px);font-weight:400;color:var(--cream);margin-bottom:20px;line-height:1.2}
+.pdv-rule{width:32px;height:.5px;background:rgba(255,255,255,.2);margin-bottom:24px}
+.pdv-list{list-style:none;display:flex;flex-direction:column;gap:16px}
+.pdv-list li{display:flex;gap:12px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.48);line-height:1.65}
+.pdv-list li::before{content:'—';color:rgba(255,255,255,.2);flex-shrink:0;padding-top:1px}
+.pdv-list li .pdv-li-inner{flex:1;min-width:0}
+.pdv-list li strong{color:rgba(255,255,255,.82);font-weight:500;display:block;margin-bottom:2px}
+.pdv-bottom{margin-top:2px;background:rgba(255,255,255,.06);border:.5px solid rgba(255,255,255,.07);padding:36px 48px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.pdv-bottom-txt{font-family:var(--serif);font-size:clamp(15px,1.8vw,20px);font-style:italic;color:rgba(255,255,255,.5);line-height:1.5;max-width:580px}
+.btn-cream{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--cream);padding:16px 36px;text-decoration:none;transition:opacity var(--ease);display:inline-block;white-space:nowrap}
+.btn-cream:hover{opacity:.82}
+@media(max-width:780px){.pdv-grid{grid-template-columns:1fr}}
+
+/* USE CASES */
+.uc-sec{background:var(--cream-d)}
+.uc-filters{display:flex;gap:4px;margin-bottom:48px;flex-wrap:wrap}
+.uc-fb{font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:8px 18px;border:.5px solid var(--grey-f);background:transparent;color:var(--grey);cursor:pointer;transition:all var(--ease);font-family:var(--sans)}
+.uc-fb.on,.uc-fb:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.uc-card{background:var(--cream);padding:32px 32px 60px;cursor:pointer;transition:background var(--ease);position:relative}
+.uc-card:hover{background:var(--ink)}
+.uc-card:hover .uc-n{color:rgba(255,255,255,.12)}
+.uc-card:hover .uc-t{color:var(--cream)}
+.uc-card:hover .uc-d{color:rgba(255,255,255,.4)}
+.uc-card:hover .uc-res{color:rgba(255,255,255,.5)}
+.uc-card:hover .uc-dl{color:var(--cream);border-color:rgba(255,255,255,.18)}
+.uc-card:hover .uc-arr{color:var(--cream);transform:translateX(3px)}
+.uc-n{font-size:10px;letter-spacing:.18em;color:var(--grey-f);margin-bottom:14px;transition:color var(--ease)}
+.uc-t{font-family:var(--serif);font-size:clamp(16px,1.8vw,20px);font-weight:400;color:var(--ink);line-height:1.25;margin-bottom:12px;transition:color var(--ease)}
+.uc-d{font-size:12px;color:var(--grey);line-height:1.7;margin-bottom:20px;transition:color var(--ease)}
+.uc-foot{display:flex;align-items:center;justify-content:space-between;position:absolute;bottom:24px;left:32px;right:32px}
+.uc-res{font-size:11px;font-weight:500;color:var(--grey);transition:color var(--ease)}
+.uc-dl{font-size:10px;color:var(--ink);border:.5px solid var(--grey-f);padding:4px 10px;transition:all var(--ease)}
+.uc-arr{position:absolute;top:28px;right:28px;font-size:14px;color:var(--grey-f);transition:all var(--ease)}
+.uc-more{text-align:center;margin-top:48px}
+@media(max-width:860px){.uc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.uc-grid{grid-template-columns:1fr}}
+
+/* OFFRE */
+.offre-sec{background:var(--cream)}
+.offre-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:48px}
+.offre-card{background:var(--cream-d);padding:48px;display:flex;flex-direction:column}
+.offre-card.dark{background:var(--ink)}
+.offre-tag{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--grey-l);margin-bottom:20px}
+.offre-card.dark .offre-tag{color:rgba(255,255,255,.28)}
+.offre-name{font-family:var(--serif);font-size:clamp(20px,2.5vw,28px);font-weight:400;color:var(--ink);margin-bottom:6px}
+.offre-card.dark .offre-name{color:var(--cream)}
+.offre-fmt{font-size:12px;color:var(--grey);margin-bottom:28px;letter-spacing:.04em}
+.offre-card.dark .offre-fmt{color:rgba(255,255,255,.38)}
+.offre-sep{height:.5px;background:var(--grey-f);margin-bottom:28px}
+.offre-card.dark .offre-sep{background:rgba(255,255,255,.1)}
+.offre-items{list-style:none;display:flex;flex-direction:column;gap:10px;flex:1;margin-bottom:32px}
+.offre-items li{font-size:12px;color:var(--grey);line-height:1.6;display:flex;gap:10px}
+.offre-items li::before{content:'—';color:var(--grey-f);flex-shrink:0}
+.offre-card.dark .offre-items li{color:rgba(255,255,255,.42)}
+.offre-card.dark .offre-items li::before{color:rgba(255,255,255,.15)}
+.offre-price{font-family:var(--serif);font-size:clamp(20px,2.5vw,28px);font-weight:400;color:var(--ink)}
+.offre-card.dark .offre-price{color:var(--cream)}
+.offre-bottom{margin-top:2px;background:var(--cream-d);padding:36px 48px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.offre-formats{display:flex;gap:2px;flex-wrap:wrap}
+.of-item{padding:20px 28px;min-width:180px}
+.of-item.dark{background:var(--ink)}
+.of-item.light{background:var(--cream)}
+.of-name{font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:4px}
+.of-item.dark .of-name{color:var(--cream)}
+.of-dur{font-size:11px;color:var(--grey)}
+.of-item.dark .of-dur{color:rgba(255,255,255,.38)}
+.of-price{font-family:var(--serif);font-size:18px;color:var(--ink);margin-top:12px}
+.of-item.dark .of-price{color:var(--cream)}
+@media(max-width:700px){.offre-grid{grid-template-columns:1fr}}
+
+/* ÉQUIPE */
+.equipe-sec{background:var(--cream-d)}
+.equipe-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:52px}
+.membre{background:var(--cream);padding:48px}
+.mb-av{width:56px;height:56px;background:var(--cream-d);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;color:var(--grey);margin-bottom:24px}
+.mb-name{font-family:var(--serif);font-size:24px;font-weight:400;color:var(--ink);margin-bottom:3px}
+.mb-role{font-size:10px;letter-spacing:.18em;color:var(--grey);text-transform:uppercase;margin-bottom:20px}
+.mb-rule{width:32px;height:.5px;background:var(--grey-f);margin-bottom:20px}
+.mb-bio{font-size:13px;color:var(--grey);line-height:1.8;margin-bottom:24px}
+.mb-tags{display:flex;flex-wrap:wrap;gap:6px}
+.mb-tag{font-size:10px;color:var(--grey);border:.5px solid var(--grey-f);padding:4px 12px}
+@media(max-width:700px){.equipe-grid{grid-template-columns:1fr}}
+
+/* CTA */
+.cta-sec{background:var(--ink);text-align:center;padding:120px 5vw}
+.cta-t{font-family:var(--serif);font-size:clamp(36px,6vw,72px);font-weight:400;color:var(--cream);line-height:1.08;margin-bottom:20px}
+.cta-sub{font-size:14px;color:rgba(255,255,255,.4);line-height:1.8;margin-bottom:48px;max-width:460px;margin-left:auto;margin-right:auto}
+.cta-note{font-family:var(--serif);font-size:13px;color:rgba(255,255,255,.25);font-style:italic;margin-top:20px}
+
+/* FOOTER */
+footer{background:var(--cream-d);padding:40px 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:.5px solid var(--grey-f)}
+.ft-logo{font-family:var(--serif);font-size:18px;color:var(--ink)}
+.ft-tag{font-family:var(--serif);font-size:13px;color:var(--grey);font-style:italic}
+.ft-links{display:flex;gap:24px;list-style:none}
+.ft-links a{font-size:10px;color:var(--grey);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color var(--ease)}
+.ft-links a:hover{color:var(--ink)}
+
+/* MÉTHODE */
+.meth-sec{background:var(--cream-m)}
+.meth-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px}
+.meth-step{background:var(--cream);padding:36px 32px 40px;position:relative}
+.meth-num{font-family:var(--serif);font-size:44px;font-weight:300;color:var(--grey-f);line-height:1;margin-bottom:16px}
+.meth-t{font-family:var(--serif);font-size:clamp(16px,1.8vw,20px);font-weight:400;color:var(--ink);margin-bottom:6px;line-height:1.25}
+.meth-dur{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-bottom:16px}
+.meth-rule{width:32px;height:.5px;background:var(--grey-f);margin-bottom:16px}
+.meth-d{font-size:12.5px;color:var(--grey);line-height:1.7}
+@media(max-width:900px){.meth-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.meth-grid{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq-sec{background:var(--cream)}
+.faq-list{max-width:720px;margin-top:8px}
+.faq-item{border-bottom:.5px solid var(--grey-f)}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:24px 0;font-family:var(--serif);font-size:clamp(16px,2vw,20px);color:var(--ink);transition:color var(--ease)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-family:var(--sans);font-weight:300;font-size:20px;color:var(--grey-l);flex-shrink:0;transition:transform var(--ease)}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item summary:hover{color:var(--grey)}
+.faq-a{font-size:13px;color:var(--grey);line-height:1.8;padding:0 40px 24px 0;max-width:620px}
+.faq-a strong{color:var(--ink);font-weight:500}
+
+/* MEMBRE LINK */
+.mb-link{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);text-decoration:none;border-bottom:.5px solid var(--grey-f);padding-bottom:2px;margin-top:20px;transition:color var(--ease)}
+.mb-link:hover{color:var(--ink);border-color:var(--ink)}
+
+/* ANIM */
+.fu{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.fu.in{opacity:1;transform:translateY(0)}
+
+/* ACCESSIBILITÉ */
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:1.5px solid var(--ink);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .fu{opacity:1;transform:none;transition:none}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nb">
+    <div class="nb-name">IAADOPTION</div>
+    <div class="nb-sub">Performance &amp; Valeur par l'IA</div>
+  </div>
+  <ul class="nl">
+    <li><a href="#pdv">Notre approche</a></li>
+    <li><a href="#uc">Cas d'usage</a></li>
+    <li><a href="#offre">L'offre</a></li>
+    <li><a href="#methode">La méthode</a></li>
+    <li><a href="#equipe">L'équipe</a></li>
+    <li><a href="#contact" class="cta">Diagnostic gratuit</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-wm">IA</div>
+  <div class="hero-in">
+    <div class="eyebrow fu">PME · Tous secteurs · France · 2025</div>
+    <h1 class="fu">Dirigeants de PME :<br>créer de la valeur<br>concrète <em>par l'IA.</em></h1>
+    <p class="hero-desc fu">Nous aidons les dirigeants de PME à transformer leur organisation grâce à l'IA —<br><strong>des résultats mesurables, déployés rapidement, qui tiennent dans le temps.</strong></p>
+    <div class="hero-ctas fu">
+      <a href="#contact" class="btn-ink">Demander un diagnostic gratuit</a>
+      <a href="#uc" class="btn-g">Voir nos cas d'usage</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat fu"><div class="stat-n">25+</div><div class="stat-l">cas d'usage déployés<br>sur des PME réelles</div></div>
+  <div class="stat fu"><div class="stat-n">90j</div><div class="stat-l">délai pour des résultats<br>mesurables et prouvés</div></div>
+  <div class="stat fu"><div class="stat-n">2 axes</div><div class="stat-l">support allégé<br>commercial amplifié</div></div>
+</div>
+
+<!-- PDV -->
+<section class="sec pdv" id="pdv">
+  <div class="sec-label">Notre proposition de valeur</div>
+  <p class="pdv-intro fu">Une offre intégrée qui combine <em>la force du conseil opérationnel</em> et <em>la puissance de l'IA</em> — pour créer une valeur immédiate et durable dans votre organisation.</p>
+  <div class="pdv-grid">
+    <div class="pdv-bloc fu">
+      <div class="pdv-num">01</div>
+      <div class="pdv-titre">La force du conseil opérationnel</div>
+      <div class="pdv-rule"></div>
+      <ul class="pdv-list">
+        <li><div class="pdv-li-inner"><strong>Expérience terrain réelle</strong>Nous avons dirigé, structuré et développé des organisations. Nous comprenons ce que vous vivez parce que nous l'avons vécu.</div></li>
+        <li><div class="pdv-li-inner"><strong>Compréhension rapide</strong>Nous allons vite à l'essentiel — diagnostic précis, identification des leviers prioritaires, sans détour ni sur-analyse.</div></li>
+        <li><div class="pdv-li-inner"><strong>Pragmatisme avant tout</strong>Pas de recommandations qui restent dans un tiroir. Nous partons de votre réalité opérationnelle et nous agissons.</div></li>
+        <li><div class="pdv-li-inner"><strong>Main dans la main avec le dirigeant</strong>Nous travaillons avec vous, pas pour vous. Chaque étape est co-construite, chaque décision vous appartient.</div></li>
+      </ul>
+    </div>
+    <div class="pdv-bloc fu">
+      <div class="pdv-num">02</div>
+      <div class="pdv-titre">La puissance de l'IA</div>
+      <div class="pdv-rule"></div>
+      <ul class="pdv-list">
+        <li><div class="pdv-li-inner"><strong>Cas d'usage ciblés sur votre organisation</strong>Nous n'appliquons pas des solutions génériques. Chaque déploiement est conçu pour votre contexte, vos processus, vos équipes.</div></li>
+        <li><div class="pdv-li-inner"><strong>Déployables en semaines, pas en mois</strong>Des résultats visibles rapidement. Nos interventions produisent des preuves mesurables dans les 30 à 90 premiers jours.</div></li>
+        <li><div class="pdv-li-inner"><strong>Évolutifs et pilotables</strong>Les solutions que nous déployons s'adaptent à votre croissance. Vous gardez la main sur ce qui fonctionne.</div></li>
+        <li><div class="pdv-li-inner"><strong>Une offre intégrée</strong>Du diagnostic à l'adoption durable — nous couvrons l'ensemble du chemin. Une seule démarche cohérente.</div></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pdv-bottom fu">
+    <p class="pdv-bottom-txt">« Des résultats mesurables — ancrés dans vos opérations réelles et adoptés durablement par vos équipes. »</p>
+    <a href="#contact" class="btn-cream">Parlons de votre organisation</a>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="sec uc-sec" id="uc">
+  <div class="sec-label">Cas d'usage</div>
+  <h2 class="sec-t fu">Des cas concrets.<br>Sur votre métier.</h2>
+  <p class="sec-sub fu" style="margin-bottom:40px">25 cas d'usage déployés sur des PME. Chacun avec un résultat mesurable et un délai réaliste.</p>
+  <div class="uc-filters fu">
+    <button class="uc-fb on" data-f="all">Tous</button>
+    <button class="uc-fb" data-f="commercial">Commercial</button>
+    <button class="uc-fb" data-f="support">Support &amp; Admin</button>
+    <button class="uc-fb" data-f="rh">RH</button>
+    <button class="uc-fb" data-f="operations">Opérations</button>
+    <button class="uc-fb" data-f="pilotage">Pilotage</button>
+  </div>
+  <div class="uc-grid" id="uc-grid"></div>
+  <div class="uc-more fu">
+    <button class="btn-g" id="voir-plus" style="border:none;background:none;cursor:pointer;font-family:var(--sans);margin:0 auto"></button>
+  </div>
+</section>
+
+<!-- OFFRE -->
+<section class="sec offre-sec" id="offre">
+  <div class="sec-label">L'offre</div>
+  <h2 class="sec-t fu">Deux axes.<br>Des résultats mesurables.</h2>
+  <p class="sec-sub fu" style="margin-bottom:0">Nous intervenons là où l'IA crée une valeur immédiatement tangible — sans disruption, sans sur-promesse.</p>
+  <div class="offre-grid">
+    <div class="offre-card fu">
+      <div class="offre-tag">Axe 01</div>
+      <div class="offre-name">Alléger les fonctions support</div>
+      <div class="offre-fmt">Automatisation · Reporting · Traitement de documents</div>
+      <div class="offre-sep"></div>
+      <ul class="offre-items">
+        <li>Reporting et consolidation automatisés — 3 à 4h gagnées par semaine</li>
+        <li>Traitement intelligent des mails et documents entrants</li>
+        <li>Comptes-rendus et suivi de réunion automatisés</li>
+        <li>Gestion administrative et facturation allégées</li>
+        <li>Base de connaissances intelligente et capitalisation</li>
+      </ul>
+      <div class="offre-price" style="font-size:13px;font-family:var(--sans);color:var(--grey)">Diagnostic IA · Mission ciblée</div>
+    </div>
+    <div class="offre-card dark fu">
+      <div class="offre-tag">Axe 02</div>
+      <div class="offre-name">Amplifier la capacité commerciale</div>
+      <div class="offre-fmt">Prospection · Contenu · Lead gen augmentés par l'IA</div>
+      <div class="offre-sep"></div>
+      <ul class="offre-items">
+        <li>Prospection augmentée — ×3 à ×5 volume sans recruter</li>
+        <li>Personnalisation automatique des propositions commerciales</li>
+        <li>Veille commerciale et détection de signaux d'affaires</li>
+        <li>Production de contenu et lead generation IA</li>
+        <li>Qualification et scoring automatique des leads entrants</li>
+      </ul>
+      <div class="offre-price" style="font-size:13px;font-family:var(--sans);color:rgba(255,255,255,.38)">Diagnostic IA · Mission ciblée</div>
+    </div>
+  </div>
+  <div class="offre-bottom fu">
+    <div>
+      <div style="font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--grey);margin-bottom:12px">Nos formats d'intervention</div>
+      <div class="offre-formats">
+        <div class="of-item light">
+          <div class="of-name">Diagnostic IA</div>
+          <div class="of-dur">2–3 semaines · Prix fixe</div>
+          <div class="of-price">5 000 – 8 000€</div>
+        </div>
+        <div class="of-item dark">
+          <div class="of-name">Mission ciblée</div>
+          <div class="of-dur">4–12 semaines · Périmètre défini</div>
+          <div class="of-price">15 000 – 40 000€</div>
+        </div>
+        <div class="of-item light">
+          <div class="of-name">Suivi &amp; adoption</div>
+          <div class="of-dur">En continu · Supervision, évolutions, formation</div>
+          <div class="of-price">Abonnement mensuel</div>
+        </div>
+      </div>
+    </div>
+    <a href="#contact" class="btn-ink">Demander un diagnostic</a>
+  </div>
+</section>
+
+<!-- MÉTHODE -->
+<section class="sec meth-sec" id="methode">
+  <div class="sec-label">La méthode</div>
+  <h2 class="sec-t fu">Du diagnostic à l'adoption.<br>En 90 jours.</h2>
+  <p class="sec-sub fu">Un chemin balisé, des indicateurs définis avant chaque étape — pas après. Vous savez toujours où vous en êtes et ce que ça rapporte.</p>
+  <div class="meth-grid">
+    <div class="meth-step fu">
+      <div class="meth-num">01</div>
+      <div class="meth-t">Diagnostic</div>
+      <div class="meth-dur">2–3 semaines</div>
+      <div class="meth-rule"></div>
+      <p class="meth-d">Immersion dans vos opérations, cartographie des processus et des données, cas d'usage priorisés par ROI. Livrable : une feuille de route actionnable.</p>
+    </div>
+    <div class="meth-step fu">
+      <div class="meth-num">02</div>
+      <div class="meth-t">Pilote</div>
+      <div class="meth-dur">30 jours</div>
+      <div class="meth-rule"></div>
+      <p class="meth-d">Un premier cas d'usage à preuve rapide. Les indicateurs de succès sont fixés avant le lancement, mesurés à la fin — la valeur est démontrée, pas promise.</p>
+    </div>
+    <div class="meth-step fu">
+      <div class="meth-num">03</div>
+      <div class="meth-t">Déploiement</div>
+      <div class="meth-dur">30–60 jours</div>
+      <div class="meth-rule"></div>
+      <p class="meth-d">Extension aux processus voisins, intégration à vos outils existants, formation des équipes concernées. Documentation complète remise à chaque étape.</p>
+    </div>
+    <div class="meth-step fu">
+      <div class="meth-num">04</div>
+      <div class="meth-t">Adoption &amp; suivi</div>
+      <div class="meth-dur">En continu</div>
+      <div class="meth-rule"></div>
+      <p class="meth-d">Mesure de l'usage réel, ajustements, montée en compétence de vos équipes. L'objectif : que la solution vive sans nous. L'IA adoptée, pas subie.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ÉQUIPE -->
+<section class="sec equipe-sec" id="equipe">
+  <div class="sec-label">L'équipe fondatrice</div>
+  <h2 class="sec-t fu">Une complémentarité<br>rare et prouvée.</h2>
+  <p class="sec-sub fu" style="margin-bottom:0">Conseil opérationnel et expertise IA réunis dans une même structure — pour une offre véritablement intégrée.</p>
+  <div class="equipe-grid">
+    <div class="membre fu">
+      <div class="mb-av">H</div>
+      <div class="mb-name">Hamid Hidja</div>
+      <div class="mb-role">Co-founder · Conseil opérationnel &amp; stratégie</div>
+      <div class="mb-rule"></div>
+      <p class="mb-bio">Deux créations et deux cessions réussies dans les services RH et technologiques. Il apporte la compréhension des organisations, la rapidité de diagnostic et la capacité à travailler main dans la main avec les dirigeants. Sa conviction : l'IA ne crée de la valeur que si elle est ancrée dans la réalité opérationnelle de l'entreprise.</p>
+      <div class="mb-tags">
+        <span class="mb-tag">Fondateur 2× cédant</span>
+        <span class="mb-tag">HEC Paris</span>
+        <span class="mb-tag">Polytechnique IA</span>
+        <span class="mb-tag">Conseil organisationnel</span>
+      </div>
+      <a class="mb-link" href="https://www.linkedin.com/in/hamid-hidja-38206413/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="membre fu">
+      <div class="mb-av">S</div>
+      <div class="mb-name">Samir Chibout</div>
+      <div class="mb-role">Co-founder · Architecture IA &amp; delivery technique</div>
+      <div class="mb-rule"></div>
+      <p class="mb-bio">15 ans d'expérience en intégration de systèmes et développement de solutions IA sur mesure. Il traduit les cas d'usage identifiés en solutions déployées — agents IA, automatisation de flux, intégrations multi-systèmes. Sa conviction : la technologie doit servir le métier, pas l'inverse.</p>
+      <div class="mb-tags">
+        <span class="mb-tag">Agents IA</span>
+        <span class="mb-tag">Make · n8n · LLM</span>
+        <span class="mb-tag">Intégration SI</span>
+        <span class="mb-tag">15 ans d'expérience</span>
+      </div>
+      <a class="mb-link" href="https://www.linkedin.com/in/samir-chibout/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq-sec" id="faq">
+  <div class="sec-label">Questions fréquentes</div>
+  <h2 class="sec-t fu">Les questions que<br>vous vous posez déjà.</h2>
+  <div class="faq-list">
+    <details class="faq-item fu">
+      <summary>Combien ça coûte, concrètement ?</summary>
+      <p class="faq-a">Le premier échange de 30 minutes est <strong>gratuit et sans engagement</strong>. Ensuite : diagnostic IA à prix fixe (5 000 – 8 000 €), mission ciblée à périmètre défini (15 000 – 40 000 €). Pas de facturation au temps passé sans plafond — vous connaissez le coût avant de vous engager.</p>
+    </details>
+    <details class="faq-item fu">
+      <summary>Nos données sont-elles en sécurité ?</summary>
+      <p class="faq-a"><strong>Vos données restent les vôtres.</strong> Nous privilégions des solutions hébergées en Europe, configurées pour que vos données ne servent jamais à entraîner des modèles publics. Chaque déploiement s'accompagne d'une analyse RGPD et d'une charte d'usage interne.</p>
+    </details>
+    <details class="faq-item fu">
+      <summary>Nous n'avons pas de DSI. C'est un problème ?</summary>
+      <p class="faq-a">Non — c'est même notre cas le plus fréquent. Nous nous intégrons à vos outils existants (messagerie, CRM, tableur, ERP) sans refonte de votre informatique, et nous concevons des solutions <strong>pilotables par vos équipes</strong>, pas par des ingénieurs.</p>
+    </details>
+    <details class="faq-item fu">
+      <summary>Allons-nous devenir dépendants de vous ?</summary>
+      <p class="faq-a">C'est l'inverse de notre modèle. <strong>Vous restez propriétaire</strong> des solutions déployées, chaque mission inclut documentation et formation, et notre objectif affiché est que la solution vive sans nous. Le suivi continu est une option, jamais une obligation.</p>
+    </details>
+    <details class="faq-item fu">
+      <summary>Quand verrons-nous des résultats ?</summary>
+      <p class="faq-a">Les indicateurs sont définis <strong>avant</strong> chaque intervention, et nos déploiements produisent des preuves mesurables dans les <strong>30 à 90 premiers jours</strong> : heures gagnées par semaine, volume de prospection, délais de traitement. Si un cas d'usage ne tient pas cette promesse, nous vous le disons au diagnostic.</p>
+    </details>
+    <details class="faq-item fu">
+      <summary>Pourquoi vous, plutôt qu'un grand cabinet ou un freelance ?</summary>
+      <p class="faq-a">Un grand cabinet vous vendra de la stratégie sans déploiement ; un freelance, du déploiement sans stratégie. Nous réunissons les deux : <strong>un pair du dirigeant</strong> qui a créé et cédé deux entreprises, et <strong>un architecte technique</strong> avec 15 ans d'intégration de systèmes. Du diagnostic à l'adoption, une seule équipe.</p>
+    </details>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contact">
+  <h2 class="cta-t fu">Votre premier diagnostic<br>est gratuit.</h2>
+  <p class="cta-sub fu">30 minutes pour identifier où l'IA peut créer de la valeur dans votre organisation. Sans engagement. Sans jargon.</p>
+  <a href="mailto:contact@iaadoption.ai" class="btn-cream fu">Prendre rendez-vous</a>
+  <p class="cta-note fu">contact@iaadoption.ai · iaadoption.ai</p>
+</section>
+
+<footer>
+  <div class="ft-logo">IAADOPTION</div>
+  <div class="ft-tag">Performance et création de valeur des PME par l'IA</div>
+  <ul class="ft-links">
+    <li><a href="#pdv">Approche</a></li>
+    <li><a href="#uc">Cas d'usage</a></li>
+    <li><a href="#offre">Offre</a></li>
+    <li><a href="#methode">Méthode</a></li>
+    <li><a href="#equipe">Équipe</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+const UC = [
+  {f:'commercial',n:'01 · Commercial',t:"Prospection commerciale augmentée par IA",d:"Enrichissement automatique, personnalisation des messages d'approche, relances contextualisées.",r:'×3 à ×5 volume prospection',dl:'3–4 sem.'},
+  {f:'commercial',n:'02 · Commercial',t:"Personnalisation automatique des propositions",d:"Génération de propositions contextualisées à partir d'un brief court — intégrant le contexte client.",r:'Temps rédaction ÷3',dl:'3–4 sem.'},
+  {f:'commercial',n:'03 · Commercial',t:"Veille commerciale et signaux d'affaires",d:"Surveillance automatique des signaux — levées, recrutements, nominations. Briefing personnalisé chaque matin.",r:'0 signal manqué',dl:'2–3 sem.'},
+  {f:'commercial',n:'04 · Commercial',t:"Production de contenu commercial et marketing",d:"Workflow semi-automatisé — génération multi-formats, calendrier éditorial maintenu automatiquement.",r:'Cadence ×3 · Temps ÷2',dl:'2–3 sem.'},
+  {f:'commercial',n:'05 · Commercial',t:"Qualification et scoring automatique des leads",d:"Analyse du lead entrant, enrichissement, score de pertinence, routing vers le bon commercial.",r:'Qualification ÷4 · 0 lead perdu',dl:'2–3 sem.'},
+  {f:'support',n:'06 · Support & Admin',t:"Reporting automatisé — consolidation et synthèse",d:"Collecte automatique des données, consolidation multi-sources, rapport structuré hebdomadaire.",r:'3–4h gagnées / semaine',dl:'2–3 sem.'},
+  {f:'support',n:'07 · Support & Admin',t:"Traitement intelligent des mails et documents",d:"Classification, extraction, routing automatique. Zéro mail perdu, priorisation automatique.",r:'Temps traitement –60%',dl:'3–4 sem.'},
+  {f:'support',n:'08 · Support & Admin',t:"Comptes-rendus et suivi de réunion automatisés",d:"Transcription, extraction des décisions et actions, envoi automatique, mise à jour outil de suivi.",r:'30–45 min gagnées / réunion',dl:'1–2 sem.'},
+  {f:'support',n:'09 · Support & Admin',t:"Extraction et analyse de documents contractuels",d:"RAG sur base documentaire — extraction des clauses importantes, identification des risques.",r:'Temps analyse ÷5',dl:'4–5 sem.'},
+  {f:'support',n:'10 · Support & Admin',t:"Automatisation de la gestion des notes de frais",d:"Photo du justificatif, extraction OCR + LLM, vérification conformité, intégration comptable.",r:'80% temps admin éliminé',dl:'2–3 sem.'},
+  {f:'rh',n:'11 · RH',t:"Sourcing et présélection de candidats augmentés",d:"Scoring automatique des candidatures, présélection sur critères définis, messages personnalisés.",r:'Temps recrutement –40%',dl:'3–4 sem.'},
+  {f:'rh',n:'12 · RH',t:"Onboarding automatisé et personnalisé",d:"Parcours d'onboarding automatisé selon le poste, envoi séquencé, alertes manager sur les étapes clés.",r:'100% étapes couvertes',dl:'3–4 sem.'},
+  {f:'rh',n:'13 · RH',t:"Analyse prédictive des risques RH",d:"Croisement des données pour détecter les signaux faibles de désengagement et de surcharge.",r:'Détection précoce · Turnover réduit',dl:'4–6 sem.'},
+  {f:'rh',n:'14 · RH',t:"Assistant RH conversationnel interne",d:"Chatbot RH basé sur la documentation — répond instantanément aux questions fréquentes.",r:'70% questions traitées auto',dl:'3–4 sem.'},
+  {f:'operations',n:'15 · Opérations',t:"Planification et optimisation du staffing",d:"Visualisation temps réel des charges, alertes déséquilibres, simulation de scénarios.",r:'Visibilité temps réel',dl:'5–6 sem.'},
+  {f:'operations',n:'16 · Opérations',t:"Automatisation du suivi de projet",d:"Collecte automatique des statuts, rapports d'avancement, alertes sur les retards.",r:'50% coordination admin éliminée',dl:'3–4 sem.'},
+  {f:'operations',n:'17 · Opérations',t:"Base de connaissances intelligente",d:"Indexation automatique des livrables, moteur de recherche conversationnel, suggestions contextuelles.",r:'Capitalisation auto',dl:'4–5 sem.'},
+  {f:'operations',n:'18 · Opérations',t:"Automatisation facturation et suivi financier",d:"Génération des factures, suivi des paiements, relances séquencées, alertes comptable.",r:'DSO réduit · Admin ÷3',dl:'3–4 sem.'},
+  {f:'pilotage',n:'19 · Pilotage',t:"Dashboard dirigeant augmenté — vue 360",d:"Consolidation automatique des KPIs clés, alertes anomalies, synthèse hebdomadaire générée par IA.",r:'2h gagnées / semaine',dl:'4–6 sem.'},
+  {f:'pilotage',n:'20 · Pilotage',t:"Veille stratégique et concurrentielle automatisée",d:"Surveillance sources définies, qualification par pertinence, synthèse hebdomadaire personnalisée.",r:'3h gagnées / semaine',dl:'2–3 sem.'},
+  {f:'pilotage',n:'21 · Pilotage',t:"Préparation automatique des réunions dirigeants",d:"Collecte automatique des données pertinentes, génération du support structuré, ordre du jour.",r:'2–3h gagnées / réunion',dl:'2–3 sem.'},
+  {f:'pilotage',n:'22 · Pilotage',t:"Simulation et aide à la décision financière",d:"Projections selon différents scénarios, quantification des impacts, arbitrages présentés lisiblement.",r:'Décisions mieux calibrées',dl:'4–5 sem.'},
+  {f:'pilotage',n:'23 · Pilotage',t:"Agent de conformité et gestion réglementaire",d:"Surveillance des évolutions réglementaires, analyse d'impact, recommandations d'actions.",r:'0 évolution manquée',dl:'4–5 sem.'},
+  {f:'pilotage',n:'24 · Pilotage',t:"Optimisation relation client et NPS augmenté",d:"Score de satisfaction prédictif, alertes churn, identification des opportunités d'upsell.",r:'Churn réduit · Upsell identifié',dl:'3–4 sem.'},
+  {f:'pilotage',n:'25 · Pilotage',t:"Formation et adoption IA des équipes",d:"Programme sur mesure par fonction, déploiement cas d'usage concrets, mesure de l'adoption.",r:'Adoption réelle et durable',dl:'4–8 sem.'},
+];
+
+let activeF = 'all';
+let showAll = false;
+const BATCH = 9;
+
+function filtered() {
+  return activeF === 'all' ? UC : UC.filter(u => u.f === activeF);
+}
+
+function cardHTML(uc) {
+  return `<div class="uc-card" data-f="${uc.f}">
+    <div class="uc-arr">→</div>
+    <div class="uc-n">${uc.n}</div>
+    <h3 class="uc-t">${uc.t}</h3>
+    <p class="uc-d">${uc.d}</p>
+    <div class="uc-foot">
+      <span class="uc-res">${uc.r}</span>
+      <span class="uc-dl">${uc.dl}</span>
+    </div>
+  </div>`;
+}
+
+function render() {
+  const list = filtered();
+  const toShow = showAll ? list : list.slice(0, BATCH);
+  document.getElementById('uc-grid').innerHTML = toShow.map(cardHTML).join('');
+  const btn = document.getElementById('voir-plus');
+  if (list.length > BATCH && !showAll) {
+    btn.style.display = 'flex';
+    btn.innerHTML = `Voir les ${list.length} cas d'usage <span style="font-size:15px;margin-left:8px">→</span>`;
+    btn.className = 'btn-g';
+  } else {
+    btn.style.display = 'none';
+  }
+}
+
+document.querySelectorAll('.uc-fb').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.uc-fb').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    activeF = btn.dataset.f;
+    showAll = false;
+    render();
+  });
+});
+
+document.getElementById('voir-plus').addEventListener('click', () => {
+  showAll = true;
+  render();
+});
+
+render();
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), i * 60);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

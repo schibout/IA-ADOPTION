@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette « clarté technologique » — cahier des charges §6 */
+  --color-paper: #fafaf7;
+  --color-paper-2: #f1f1ec;
+  --color-ink: #101b33;
+  --color-ink-2: #1a2947;
+  --color-green: #00d084;
+  --color-green-deep: #007a55;
+  --color-violet: #5b4fe9;
+  --color-mist: #5a6478;
+  --color-line: rgba(16, 27, 51, 0.13);
+  --color-line-dark: rgba(250, 250, 247, 0.14);
+
+  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--color-green);
+  color: var(--color-ink);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-green-deep);
+  outline-offset: 3px;
+}
+
+/* Apparition au scroll — coupée si reduced motion */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Flux de données du hero */
+.flow-dash {
+  stroke-dasharray: 6 10;
+  animation: flow-move 2.6s linear infinite;
+}
+.flow-pulse {
+  animation: flow-pulse 2.6s ease-in-out infinite;
+}
+@keyframes flow-move {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+@keyframes flow-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .flow-dash,
+  .flow-pulse {
+    animation: none;
+  }
+}

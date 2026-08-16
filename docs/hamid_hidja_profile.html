@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamid HIDJA — Profil</title>
+<style>
+  :root{
+    --ink:#14171c;
+    --ink-soft:#4b5563;
+    --line:#e5e7eb;
+    --paper:#ffffff;
+    --canvas:#f6f7f9;
+    --accent:#0a66c2;
+    --accent-soft:#e8f1fb;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--canvas);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.5;
+  }
+  .wrap{max-width:900px;margin:0 auto;padding:32px 20px 64px;}
+
+  .header{
+    background:linear-gradient(135deg,#0a66c2 0%,#0e4d8f 100%);
+    border-radius:var(--radius);
+    padding:36px 32px;
+    color:#fff;
+    display:flex;
+    gap:24px;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .header::after{
+    content:"";
+    position:absolute;
+    right:-60px;top:-60px;
+    width:220px;height:220px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.08);
+  }
+  .avatar{
+    width:96px;height:96px;border-radius:50%;
+    background:#fff;
+    color:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+    font-size:34px;font-weight:700;
+    flex:none;
+    box-shadow:0 4px 14px rgba(0,0,0,0.18);
+    z-index:1;
+  }
+  .header-text{z-index:1;}
+  .header-text h1{margin:0 0 4px;font-size:26px;font-weight:700;}
+  .header-text p.title{margin:0 0 10px;font-size:15px;opacity:0.95;line-height:1.4;}
+  .header-meta{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;opacity:0.9;}
+  .header-meta span{display:flex;align-items:center;gap:6px;}
+
+  .section{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px 28px;
+    margin-top:20px;
+  }
+  .section h2{
+    margin:0 0 16px;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--accent);
+    font-weight:700;
+  }
+  .about-text{font-size:14.5px;color:var(--ink-soft);white-space:pre-line;}
+
+  .stats-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px;}
+  .stat{
+    flex:1;
+    min-width:130px;
+    background:var(--accent-soft);
+    border-radius:10px;
+    padding:14px 16px;
+    text-align:center;
+  }
+  .stat .num{font-size:20px;font-weight:700;color:var(--accent);}
+  .stat .lbl{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+
+  .exp-item{
+    position:relative;
+    padding-left:26px;
+    padding-bottom:22px;
+    border-left:2px solid var(--line);
+    margin-left:6px;
+  }
+  .exp-item:last-child{border-left:2px solid transparent;padding-bottom:0;}
+  .exp-item::before{
+    content:"";
+    position:absolute;
+    left:-7px;top:2px;
+    width:12px;height:12px;
+    border-radius:50%;
+    background:var(--accent);
+    border:2px solid #fff;
+    box-shadow:0 0 0 2px var(--accent);
+  }
+  .exp-role{font-size:15px;font-weight:700;color:var(--ink);}
+  .exp-company{font-size:13.5px;color:var(--accent);font-weight:600;margin-top:1px;}
+  .exp-meta{font-size:12.5px;color:var(--ink-soft);margin-top:2px;}
+  .exp-desc{font-size:13.5px;color:var(--ink-soft);margin-top:8px;white-space:pre-line;}
+
+  .edu-item{margin-bottom:12px;}
+  .edu-item:last-child{margin-bottom:0;}
+  .edu-title{font-size:14px;font-weight:700;}
+  .edu-school{font-size:13px;color:var(--ink-soft);}
+
+  .note{
+    background:var(--canvas);
+    border:1px dashed var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+
+  .footer-note{
+    text-align:center;
+    font-size:11.5px;
+    color:#9aa2ad;
+    margin-top:24px;
+  }
+  a{color:var(--accent);text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="avatar">HH</div>
+    <div class="header-text">
+      <h1>Hamid HIDJA</h1>
+      <p class="title">Trusted Advisor pour CEO de PME de Services B2B &amp; Tech · Fondateur 2× cédant · Conseil &amp; investisseur · Situations complexes &amp; décisions</p>
+      <div class="header-meta">
+        <span>📍 Paris, Île-de-France, France</span>
+        <span>👥 4 810 abonnés</span>
+        <span><a href="https://www.linkedin.com/in/hamid-hidja-38206413/" style="color:#fff;text-decoration:underline;">linkedin.com/in/hamid-hidja-38206413</a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Poste actuel</h2>
+    <div class="exp-item">
+      <div class="exp-role">Strategic Advisor</div>
+      <div class="exp-company">ContentCrea — Stratégie de Contenu &amp; Réseaux Sociaux</div>
+      <div class="exp-meta">Nouvelle position (mise en avant sur le profil)</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>À propos</h2>
+    <div class="about-text">Vous dirigez une PME de services B2B ou Tech. Vous êtes face à une situation complexe : croissance, structuration, transformation, et aucune option ne s'impose clairement. C'est dans ces moments-là qu'intervient Hamid.
+
+MES SERVICES
+En tant que Trusted Advisor, il accompagne lorsqu'il faut :
+• clarifier ce qui empêche de décider
+• mettre à jour des options réellement actionnables
+• décider et passer à l'action
+
+Il a fondé IAADOPTION avec l'ambition d'aider les dirigeants de PME à faire de l'IA un levier réel de performance et de création de valeur, et à l'activer concrètement quand cela fait sens.
+
+MA VALEUR AJOUTÉE
+L'expérience d'un pair — deux parcours complets de dirigeant dans le conseil et la Tech, de la création à la cession. Plus de quinze ans d'interventions sur l'amélioration de la performance opérationnelle auprès d'ETI et de PME.
+
+L'IA comme levier opérationnel — identification des cas d'usage activables et adaptés à la réalité de chaque dirigeant.
+
+MA FAÇON DE TRAVAILLER
+Partir de la situation du client, pas d'un cadre préétabli. Intervenir de manière ciblée, le temps nécessaire. Rendre les choses lisibles et actionnables, jusqu'à la décision.
+
+MES CLIENTS
+• Dirigeants de PME de services B2B et Tech confrontés à des enjeux de croissance, structuration ou transformation
+• Dirigeants en moment charnière (entrée d'un investisseur, structuration pré-cession, cap de croissance)
+• Dirigeants souhaitant activer l'IA comme levier de création de valeur, de façon pragmatique et responsable</div>
+
+    <div class="stats-row">
+      <div class="stat"><div class="num">2×</div><div class="lbl">fondateur cédant</div></div>
+      <div class="stat"><div class="num">15+ ans</div><div class="lbl">de conseil auprès d'ETI/PME</div></div>
+      <div class="stat"><div class="num">4 810</div><div class="lbl">abonnés LinkedIn</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Formation</h2>
+    <div class="edu-item">
+      <div class="edu-title">HEC Paris</div>
+      <div class="edu-school">École de commerce et de management</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Post à la une</h2>
+    <div class="exp-desc">« Et si on écoutait Sénèque... » — 51 réactions, 3 commentaires, 3 partages.</div>
+  </div>
+
+  <div class="note">Note : le profil public de Hamid Hidja ne détaille pas de section « Expérience » complète (parcours antérieur non listé publiquement au-delà du poste actuel et de la formation). Les informations ci-dessus reflètent l'intégralité de ce qui est visible publiquement au moment de la consultation.</div>
+
+  <div class="footer-note">Généré à partir du profil LinkedIn public de Hamid Hidja · linkedin.com/in/hamid-hidja-38206413 · 16 août 2026</div>
+
+</div>
+</body>
+</html>

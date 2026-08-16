@@ -1,0 +1,650 @@
+<title>Cahier des charges IA Doption</title>
+<style>
+  :root {
+    --bg: #FAFAF7;
+    --surface: #FFFFFF;
+    --surface-2: #F1F2EC;
+    --ink: #101B33;
+    --muted: #5A6478;
+    --border: rgba(16, 27, 51, 0.14);
+    --accent: #007A55;
+    --accent-bright: #00D084;
+    --violet: #5B4FE9;
+    --band-bg: #101B33;
+    --band-ink: #F2F5FB;
+    --band-muted: #A9B4CC;
+    --code-bg: #0E1830;
+    --code-ink: #D7DEF0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0C1424;
+      --surface: #131F38;
+      --surface-2: #182644;
+      --ink: #E8ECF5;
+      --muted: #9AA6BD;
+      --border: rgba(232, 236, 245, 0.16);
+      --accent: #2EE6A8;
+      --accent-bright: #00D084;
+      --violet: #8F86F2;
+      --band-bg: #0A1120;
+      --band-ink: #F2F5FB;
+      --band-muted: #A9B4CC;
+      --code-bg: #0A1120;
+      --code-ink: #D7DEF0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0C1424;
+    --surface: #131F38;
+    --surface-2: #182644;
+    --ink: #E8ECF5;
+    --muted: #9AA6BD;
+    --border: rgba(232, 236, 245, 0.16);
+    --accent: #2EE6A8;
+    --accent-bright: #00D084;
+    --violet: #8F86F2;
+    --band-bg: #0A1120;
+    --band-ink: #F2F5FB;
+    --band-muted: #A9B4CC;
+    --code-bg: #0A1120;
+    --code-ink: #D7DEF0;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Segoe UI", -apple-system, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.65;
+    margin: 0;
+    font-size: 16px;
+  }
+  .band {
+    background: var(--band-bg);
+    color: var(--band-ink);
+    padding: 56px 24px 48px;
+  }
+  .band-inner { max-width: 880px; margin: 0 auto; }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-bright);
+    font-weight: 600;
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-size: clamp(30px, 5vw, 44px);
+    line-height: 1.12;
+    margin: 0 0 16px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  .band p.lede {
+    color: var(--band-muted);
+    max-width: 62ch;
+    margin: 0 0 22px;
+    font-size: 17px;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .meta li {
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: var(--band-ink);
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 13px;
+  }
+  .meta li strong { color: var(--accent-bright); font-weight: 600; }
+
+  main { max-width: 880px; margin: 0 auto; padding: 40px 24px 72px; }
+
+  .toc {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 8px;
+    padding: 0;
+    margin: 0 0 8px;
+    list-style: none;
+    counter-reset: toc;
+  }
+  .toc a {
+    counter-increment: toc;
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+  .toc a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 12px;
+  }
+  .toc a:hover, .toc a:focus-visible { border-color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  section { margin-top: 56px; scroll-margin-top: 24px; }
+  h2 {
+    font-size: 26px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin: 0 0 6px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    text-wrap: balance;
+  }
+  h2 .num {
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  h2::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    align-self: center;
+  }
+  h3 { font-size: 18px; margin: 28px 0 8px; }
+  h4 { font-size: 15px; margin: 20px 0 6px; }
+  p, ul, ol { max-width: 68ch; }
+  li { margin: 4px 0; }
+  .muted { color: var(--muted); }
+  strong { font-weight: 650; }
+
+  .table-wrap { overflow-x: auto; margin: 16px 0; border: 1px solid var(--border); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; background: var(--surface); }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  th {
+    background: var(--surface-2);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  td:first-child { font-weight: 600; }
+  .num-cell { font-variant-numeric: tabular-nums; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; margin: 18px 0; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 18px 14px;
+  }
+  .card h4 { margin: 0 0 4px; font-size: 15.5px; }
+  .card .tag {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--violet);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .card p { font-size: 14px; margin: 6px 0; }
+  .card p b { font-weight: 650; }
+
+  .swatch {
+    display: inline-block;
+    width: 14px; height: 14px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    vertical-align: -2px;
+    margin-right: 8px;
+  }
+
+  pre.tree {
+    background: var(--code-bg);
+    color: var(--code-ink);
+    border-radius: 10px;
+    padding: 20px 22px;
+    overflow-x: auto;
+    font-family: Consolas, "Cascadia Mono", Menlo, monospace;
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+
+  .callout {
+    border-left: 3px solid var(--accent-bright);
+    background: var(--surface);
+    border-radius: 0 10px 10px 0;
+    padding: 12px 18px;
+    margin: 18px 0;
+    max-width: 68ch;
+  }
+  .callout p { margin: 0; font-size: 14.5px; }
+
+  ul.check { list-style: none; padding: 0; max-width: none; }
+  ul.check li {
+    position: relative;
+    padding: 10px 14px 10px 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 6px 0;
+    font-size: 14.5px;
+  }
+  ul.check li::before {
+    content: "";
+    position: absolute;
+    left: 13px; top: 13px;
+    width: 15px; height: 15px;
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+  }
+
+  ol.steps { padding-left: 22px; }
+  ol.steps li { margin: 6px 0; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    margin-top: 64px;
+    padding-top: 20px;
+    font-size: 13.5px;
+    color: var(--muted);
+    max-width: none;
+  }
+</style>
+
+<header class="band">
+  <div class="band-inner">
+    <p class="eyebrow">IA Doption · Agence d'adoption de l'IA</p>
+    <h1>Cahier des charges du site internet</h1>
+    <p class="lede">Spécifications du futur site vitrine bilingue de l'agence — agents IA, automatisation et SaaS sur mesure pour les PME et ETI francophones. Ce document applique la direction artistique qu'il propose au § 6.</p>
+    <ul class="meta">
+      <li>Version <strong>1.1</strong></li>
+      <li>16 août 2026</li>
+      <li>Statut : <strong>validé pour consultation</strong></li>
+      <li>Langues du site : FR / EN</li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <nav aria-label="Sommaire">
+    <ul class="toc">
+      <li><a href="#s1">Présentation du projet</a></li>
+      <li><a href="#s2">Cibles &amp; personas</a></li>
+      <li><a href="#s3">Offre de services</a></li>
+      <li><a href="#s4">Arborescence &amp; pages</a></li>
+      <li><a href="#s5">Fonctionnalités</a></li>
+      <li><a href="#s6">Direction artistique</a></li>
+      <li><a href="#s7">Spécifications techniques</a></li>
+      <li><a href="#s8">SEO &amp; contenu</a></li>
+      <li><a href="#s9">Légal &amp; accessibilité</a></li>
+      <li><a href="#s10">Phasage &amp; budget</a></li>
+      <li><a href="#s11">Critères de recette</a></li>
+    </ul>
+  </nav>
+
+  <section id="s1">
+    <h2><span class="num">01</span>Présentation du projet</h2>
+    <h3>L'agence</h3>
+    <p><strong>IA Doption</strong> est une agence spécialisée dans l'adoption de l'intelligence artificielle par les entreprises. Son nom porte sa promesse : faire <em>adopter</em> l'IA, pas seulement la déployer. Quatre piliers d'expertise :</p>
+    <ul>
+      <li><strong>Audit &amp; conseil en stratégie IA</strong> — diagnostic, feuille de route et accompagnement du dirigeant jusqu'à la décision</li>
+      <li><strong>Développement d'agents IA</strong> — assistants autonomes connectés aux outils métiers</li>
+      <li><strong>Automatisation</strong> — orchestration des processus répétitifs (back-office, données, communication)</li>
+      <li><strong>SaaS sur mesure</strong> — conception et développement de produits logiciels custom intégrant l'IA</li>
+    </ul>
+
+    <h3>Les fondateurs</h3>
+    <p>Deux profils complémentaires — le conseil et la technique — qui fondent la crédibilité de l'agence et sont mis en avant sur le site (page À propos + signature des contenus) :</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Stratégie &amp; conseil</span>
+        <h4>Hamid Hidja — Cofondateur</h4>
+        <p>Trusted advisor de dirigeants de PME de services B2B et Tech, deux fois fondateur-cédant (conseil et Tech), plus de 15 ans d'interventions en performance opérationnelle auprès d'ETI et de PME. Diplômé HEC Paris.</p>
+        <p>Sa méthode : partir de la situation du client, rendre les options lisibles et actionnables, jusqu'à la décision.</p>
+        <p><a href="https://www.linkedin.com/in/hamid-hidja-38206413/">Profil LinkedIn</a></p>
+      </div>
+      <div class="card">
+        <span class="tag">Ingénierie &amp; intégration</span>
+        <h4>Samir Chibout — Cofondateur</h4>
+        <p>Expert en intégration et solutions IT : plus de 10 ans d'expérience Salesforce, 16 ans de conseil indépendant. Références : Pluxee, TotalEnergies, Bouygues Construction. Intégrations complexes (Salesforce ↔ SAP/Oracle, MuleSoft, Talend, API), CI/CD. Certifié Oracle.</p>
+        <p>Passionné par la formation et le mentorat des équipes.</p>
+        <p><a href="https://www.linkedin.com/in/samir-chibout/">Profil LinkedIn</a></p>
+      </div>
+    </div>
+
+    <h3>Objectifs du site</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Priorité</th><th>Objectif</th><th>Indicateur de succès</th></tr></thead>
+        <tbody>
+          <tr><td class="num-cell">1</td><td>Générer des rendez-vous découverte qualifiés</td><td>≥ 10 RDV/mois à 6 mois</td></tr>
+          <tr><td class="num-cell">2</td><td>Établir la crédibilité technique de l'agence</td><td>Rebond &lt; 50 %, session &gt; 2 min</td></tr>
+          <tr><td class="num-cell">3</td><td>Construire une audience via le contenu (SEO)</td><td>5 000 visites organiques/mois à 12 mois</td></tr>
+          <tr><td class="num-cell">4</td><td>Démontrer le savoir-faire en direct (chatbot IA)</td><td>≥ 25 % des visiteurs interagissent avec le chatbot</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Périmètre</h3>
+    <ul>
+      <li>Site vitrine bilingue <strong>français (défaut) / anglais</strong></li>
+      <li>Prise de rendez-vous intégrée, blog/ressources, chatbot IA de démonstration</li>
+      <li><span class="muted">Hors périmètre (phases ultérieures) : espace client, portail de facturation, études de cas détaillées — à ajouter dès que des références clients sont publiables.</span></li>
+    </ul>
+  </section>
+
+  <section id="s2">
+    <h2><span class="num">02</span>Cibles &amp; personas</h2>
+    <p><strong>Marché principal :</strong> PME et ETI francophones (France, Belgique, Suisse, Maghreb), 10 à 500 salariés, tous secteurs, avec un angle fort sur les services, le négoce et l'industrie légère.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Persona 1</span>
+        <h4>Le dirigeant pragmatique</h4>
+        <p><b>Profil :</b> DG/gérant de PME (20–150 salariés), non technique.</p>
+        <p><b>Motivation :</b> entend parler d'IA partout, craint de « rater le train », veut du ROI concret.</p>
+        <p><b>Objections :</b> coût, complexité, dépendance à un prestataire.</p>
+        <p><b>Message clé :</b> « Des résultats mesurables en semaines, pas en années. Vous restez propriétaire de vos outils. »</p>
+      </div>
+      <div class="card">
+        <span class="tag">Persona 2</span>
+        <h4>Le responsable ops / DSI</h4>
+        <p><b>Profil :</b> responsable opérations, DAF ou DSI d'ETI, techniquement à l'aise.</p>
+        <p><b>Motivation :</b> réduire les tâches répétitives, fiabiliser les processus.</p>
+        <p><b>Objections :</b> sécurité des données, intégration au SI, RGPD.</p>
+        <p><b>Message clé :</b> « Intégration à vos outils existants, données hébergées en Europe, conformité RGPD et AI Act by design. »</p>
+      </div>
+      <div class="card">
+        <span class="tag">Persona 3</span>
+        <h4>Le responsable métier innovateur</h4>
+        <p><b>Profil :</b> responsable RH, marketing ou service client, porteur interne du sujet IA.</p>
+        <p><b>Motivation :</b> gagner du temps sur son périmètre, réussir un projet visible.</p>
+        <p><b>Objections :</b> peur d'un projet qui n'aboutit pas, besoin d'accompagnement.</p>
+        <p><b>Message clé :</b> « Un premier cas d'usage livré en 4 à 6 semaines, formation de vos équipes incluse. »</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="s3">
+    <h2><span class="num">03</span>Offre de services</h2>
+    <h3>Les quatre piliers</h3>
+    <div class="cards">
+      <div class="card">
+        <h4>Audit &amp; conseil en stratégie IA</h4>
+        <p>Le point d'entrée de la relation client, porté par Hamid Hidja. Diagnostic (processus, données, outils, organisation), cas d'usage priorisés par ROI, feuille de route pragmatique, et accompagnement du dirigeant en posture de <em>trusted advisor</em> : clarifier ce qui empêche de décider, mettre à jour des options actionnables, décider et passer à l'action. Interventions ciblées — croissance, structuration, transformation, moments charnières (entrée d'un investisseur, pré-cession).</p>
+      </div>
+      <div class="card">
+        <h4>Agents IA</h4>
+        <p>Assistants autonomes : support client, agents commerciaux (qualification de leads), agents internes connectés aux outils de l'entreprise (CRM, ERP, e-mail, agenda). Livrés avec garde-fous, supervision humaine et tableau de bord de suivi.</p>
+      </div>
+      <div class="card">
+        <h4>Automatisation</h4>
+        <p>Cartographie des processus, puis automatisation des tâches répétitives : traitement de documents (factures, contrats, CV), synchronisation d'outils, génération de rapports, workflows de validation. Technologies : n8n/Make, scripts sur mesure, API.</p>
+      </div>
+      <div class="card">
+        <h4>SaaS sur mesure</h4>
+        <p>Produits logiciels métiers intégrant l'IA : de l'outil interne au produit commercialisable. Cycle complet : cadrage, design, développement, hébergement, maintenance évolutive.</p>
+      </div>
+    </div>
+
+    <h3>Catalogue d'activités IA pour les entreprises (offre étendue)</h3>
+    <p>Ces activités complètent les piliers et alimentent le tunnel commercial, de la sensibilisation au projet livré :</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Activité</th><th>Description</th><th>Format / durée</th></tr></thead>
+        <tbody>
+          <tr><td>Audit de maturité IA</td><td>État des lieux des processus, données et outils ; cartographie des cas d'usage priorisés par ROI</td><td>2–3 semaines, livrable : feuille de route</td></tr>
+          <tr><td>Programme « IA Doption »</td><td>Parcours d'adoption accompagné sur 90 jours : 1 cas d'usage pilote + formation + mesure du ROI</td><td>3 mois, forfait</td></tr>
+          <tr><td>Ateliers dirigeants</td><td>Demi-journée pour comités de direction : opportunités, risques, cadre légal (AI Act)</td><td>0,5 jour, intra-entreprise</td></tr>
+          <tr><td>Formation des équipes</td><td>Prise en main des outils IA génératifs appliqués au métier (vente, RH, support, finance)</td><td>1–2 jours par équipe</td></tr>
+          <tr><td>Assistants métiers clés en main</td><td>Assistants pré-configurés : RH (tri de CV, onboarding), support (réponse niveau 1), ventes (relances, comptes rendus)</td><td>Déploiement 2–4 semaines</td></tr>
+          <tr><td>RAG documentaire interne</td><td>Moteur de questions-réponses sur les documents de l'entreprise (procédures, contrats, base de connaissances)</td><td>4–6 semaines</td></tr>
+          <tr><td>Conformité RGPD / AI Act</td><td>Mise en conformité des usages IA : registre des traitements, analyse de risques, chartes internes</td><td>Mission ponctuelle</td></tr>
+          <tr><td>IA Ops &amp; maintenance</td><td>Supervision, évaluation continue et amélioration des agents et automatisations en production</td><td>Abonnement mensuel</td></tr>
+          <tr><td>Hackathon IA d'entreprise</td><td>2 jours pour prototyper des cas d'usage avec les équipes internes, animés par l'agence</td><td>2 jours, événementiel</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout"><p>Chaque activité correspond à une page ou section dédiée sur le site, avec un CTA « Réserver un appel découverte ».</p></div>
+  </section>
+
+  <section id="s4">
+    <h2><span class="num">04</span>Arborescence &amp; pages</h2>
+    <p>Structure identique en FR (défaut, racine <code>/</code>) et EN (préfixe <code>/en</code>).</p>
+    <pre class="tree">/
+├── Accueil
+├── Services
+│   ├── Audit & conseil en stratégie IA
+│   ├── Agents IA
+│   ├── Automatisation
+│   └── SaaS sur mesure
+├── Activités IA          (catalogue § 3 : audit, programme 90 jours, formations…)
+├── Méthode               (Audit → Pilote → Déploiement → Suivi)
+├── Ressources            (blog : articles, guides, glossaire IA)
+│   └── /ressources/[slug]
+├── À propos              (fondateurs § 1, valeurs, manifeste « l'IA adoptée, pas subie »)
+├── Contact / RDV         (formulaire + calendrier de réservation)
+├── Mentions légales
+├── Politique de confidentialité
+└── Gestion des cookies</pre>
+
+    <h3>Page d'accueil — ordre des sections</h3>
+    <ol class="steps">
+      <li><strong>Hero</strong> — promesse + sous-titre + CTA « Réserver un appel découverte » + visuel animé sobre</li>
+      <li><strong>Preuve sociale</strong> — logos clients/partenaires, ou chiffres clés en attendant les références</li>
+      <li><strong>Les 4 piliers</strong> — cartes cliquables vers les pages services</li>
+      <li><strong>Comment ça marche</strong> — la méthode en 4 étapes</li>
+      <li><strong>Catalogue d'activités</strong> — aperçu de 4–6 activités</li>
+      <li><strong>Démo en direct</strong> — encart invitant à tester le chatbot IA</li>
+      <li><strong>Les fondateurs</strong> — deux portraits courts avec lien vers À propos (réassurance : un pair du dirigeant + un expert technique)</li>
+      <li><strong>Derniers articles</strong> — 3 cartes blog</li>
+      <li><strong>CTA final</strong> — bloc pleine largeur « Parlons de votre projet »</li>
+    </ol>
+  </section>
+
+  <section id="s5">
+    <h2><span class="num">05</span>Fonctionnalités</h2>
+
+    <h3>Prise de rendez-vous <span class="muted">(CTA principal)</span></h3>
+    <ul>
+      <li>Intégration <strong>Cal.com</strong> (open source, RGPD-friendly, auto-hébergeable) en widget embarqué sur la page Contact et en lien depuis tous les CTA</li>
+      <li>Événement « Appel découverte — 30 min » avec questions de qualification (taille d'entreprise, besoin principal, échéance)</li>
+      <li>Notifications e-mail à l'agence + confirmation et rappel au prospect</li>
+    </ul>
+
+    <h3>Blog / ressources</h3>
+    <ul>
+      <li>Contenu géré en <strong>MDX dans le dépôt</strong> — pas de CMS externe en phase 1 (simplicité, zéro coût, versionné dans Git) ; migration vers un CMS headless possible en phase 2 si un rédacteur non technique rejoint l'équipe</li>
+      <li>Catégories : Cas d'usage, Guides pratiques, Réglementation, Actualité IA</li>
+      <li>Sommaire automatique, temps de lecture, articles liés, flux RSS, partage social</li>
+      <li>Chaque article existe en FR ; traduction EN optionnelle article par article</li>
+    </ul>
+
+    <h3>Chatbot IA de démonstration</h3>
+    <ul>
+      <li>Agent conversationnel visible sur tout le site (bulle en bas à droite), présenté explicitement comme une démonstration du savoir-faire de l'agence</li>
+      <li>Alimenté par l'API Claude avec un contexte RAG sur le contenu du site (services, méthode, FAQ)</li>
+      <li>Capacités : répondre sur l'offre, qualifier le besoin, proposer la prise de RDV (lien Cal.com)</li>
+      <li>Garde-fous : périmètre limité au site et à l'offre, ton défini, mention « réponses générées par IA », limitation de débit anti-abus</li>
+      <li>Journalisation anonymisée des conversations pour améliorer les réponses, avec information des utilisateurs</li>
+    </ul>
+
+    <h3>Formulaires</h3>
+    <ul>
+      <li>Contact : nom, e-mail, entreprise, message — anti-spam sans cookie (honeypot + rate limiting)</li>
+      <li>Newsletter : e-mail seul, double opt-in</li>
+    </ul>
+
+    <h3>Internationalisation</h3>
+    <ul>
+      <li>FR par défaut à la racine, EN sous <code>/en</code>, sélecteur de langue dans l'en-tête</li>
+      <li>Balises <code>hreflang</code>, métadonnées et URL localisées</li>
+      <li>Interface entièrement traduite ; contenu blog traduit sélectivement</li>
+    </ul>
+  </section>
+
+  <section id="s6">
+    <h2><span class="num">06</span>Direction artistique <span class="muted">(proposition)</span></h2>
+    <p>L'agence n'ayant pas d'identité visuelle, le site fonde la charte. Direction proposée : <strong>« clarté technologique »</strong> — sérieux et modernité sans les clichés IA (pas de cerveaux bleus, pas de robots humanoïdes).</p>
+
+    <h3>Palette</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Rôle</th><th>Couleur</th><th>Usage</th></tr></thead>
+        <tbody>
+          <tr><td>Fond clair</td><td class="num-cell"><span class="swatch" style="background:#FAFAF7"></span>#FAFAF7 blanc cassé</td><td>Fond principal</td></tr>
+          <tr><td>Encre</td><td class="num-cell"><span class="swatch" style="background:#101B33"></span>#101B33 bleu nuit</td><td>Textes, fonds des sections sombres</td></tr>
+          <tr><td>Accent</td><td class="num-cell"><span class="swatch" style="background:#00D084"></span>#00D084 vert électrique</td><td>CTA, liens, interactions — évoque le « go », l'action, la croissance</td></tr>
+          <tr><td>Accent secondaire</td><td class="num-cell"><span class="swatch" style="background:#5B4FE9"></span>#5B4FE9 violet profond</td><td>Dégradés discrets, tags, illustrations</td></tr>
+          <tr><td>Neutres</td><td class="num-cell"><span class="swatch" style="background:#8C8F86"></span>gris chauds</td><td>Bordures, fonds de cartes</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Typographies</h3>
+    <ul>
+      <li><strong>Titres :</strong> <em>Space Grotesk</em> — géométrique, moderne, caractère tech sans froideur</li>
+      <li><strong>Texte courant :</strong> <em>Inter</em> — lisibilité maximale</li>
+      <li>Deux polices seulement, auto-hébergées (performance + RGPD, pas de Google Fonts distant)</li>
+    </ul>
+
+    <h3>Ton éditorial</h3>
+    <ul>
+      <li><strong>FR :</strong> vouvoiement, phrases courtes, concret, zéro jargon non expliqué ; les bénéfices avant les technologies</li>
+      <li>Bannir : « révolutionnaire », « magique », « disruptif » ; préférer : chiffres, délais, exemples</li>
+    </ul>
+
+    <h3>Animations</h3>
+    <ul>
+      <li>Sobres et utiles : apparitions au scroll (fondu + léger déplacement), micro-interactions sur les CTA, une animation signature sur le hero (par ex. flux de données stylisé en SVG animé)</li>
+      <li>Bibliothèque : <strong>GSAP</strong> + ScrollTrigger ; respect strict de <code>prefers-reduced-motion</code></li>
+    </ul>
+
+    <h3>Logo</h3>
+    <p>À créer (prestation graphique séparée ou proposition de l'agence web). Piste : jeu typographique sur « IA » dans « IA Doption », déclinable en favicon monogramme.</p>
+  </section>
+
+  <section id="s7">
+    <h2><span class="num">07</span>Spécifications techniques</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Domaine</th><th>Choix</th><th>Justification</th></tr></thead>
+        <tbody>
+          <tr><td>Framework</td><td>Next.js 15+ (App Router)</td><td>SSG/ISR pour performance et SEO, écosystème mature, API routes pour le chatbot</td></tr>
+          <tr><td>Styles</td><td>Tailwind CSS v4</td><td>Rapidité de développement, cohérence du design system</td></tr>
+          <tr><td>Animations</td><td>GSAP + ScrollTrigger</td><td>Standard du marché pour les animations soignées</td></tr>
+          <tr><td>Contenu blog</td><td>MDX + Contentlayer (ou équivalent)</td><td>Contenu versionné, zéro dépendance externe</td></tr>
+          <tr><td>i18n</td><td>next-intl</td><td>Routage localisé App Router, gestion propre des métadonnées</td></tr>
+          <tr><td>Chatbot</td><td>API Claude (API route Next.js)</td><td>Clé API côté serveur uniquement, streaming des réponses</td></tr>
+          <tr><td>RDV</td><td>Cal.com embarqué</td><td>Open source, conforme RGPD, gratuit en auto-hébergé</td></tr>
+          <tr><td>Hébergement</td><td>À définir — hébergeur compatible Node.js, de préférence UE (Scaleway, Clever Cloud, OVHcloud)</td><td>Souveraineté des données, CDN, déploiement continu</td></tr>
+          <tr><td>Analytics</td><td>Plausible ou Umami (UE, sans cookie)</td><td>Pas de bandeau de consentement analytics nécessaire</td></tr>
+          <tr><td>E-mails</td><td>Resend ou Brevo (UE)</td><td>Formulaires et notifications transactionnelles</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Exigences de performance</h3>
+    <ul>
+      <li>Core Web Vitals « bon » sur mobile : LCP &lt; 2,5 s · INP &lt; 200 ms · CLS &lt; 0,1</li>
+      <li>Score Lighthouse ≥ 90 sur les 4 axes (performance, accessibilité, bonnes pratiques, SEO)</li>
+      <li>Poids page d'accueil &lt; 1 Mo hors chatbot (chargé en différé)</li>
+    </ul>
+  </section>
+
+  <section id="s8">
+    <h2><span class="num">08</span>SEO &amp; stratégie de contenu</h2>
+    <h3>SEO technique</h3>
+    <ul>
+      <li>Sitemap XML, robots.txt, données structurées (Organization, Service, Article, FAQPage, BreadcrumbList)</li>
+      <li>Métadonnées Open Graph et Twitter Card par page, images OG générées</li>
+      <li>URL propres et localisées, canoniques, <code>hreflang</code> FR/EN</li>
+    </ul>
+    <h3>Mots-clés cibles (FR, indicatifs)</h3>
+    <ul>
+      <li>« agence agents IA », « agence automatisation IA », « développement SaaS sur mesure »</li>
+      <li>« conseil stratégie IA », « cabinet conseil IA PME », « audit IA PME »</li>
+      <li>« intégrer l'IA dans mon entreprise », « formation IA entreprise »</li>
+      <li>Longue traîne via le blog : « automatiser le traitement des factures », « chatbot service client PME », « RAG documents internes », « conformité AI Act PME »</li>
+    </ul>
+    <h3>Rythme éditorial</h3>
+    <ul>
+      <li>Lancement : 6 articles piliers (1 par service + 3 guides)</li>
+      <li>Croisière : 2 articles/mois minimum, chaque article relié à une activité du catalogue avec CTA</li>
+    </ul>
+  </section>
+
+  <section id="s9">
+    <h2><span class="num">09</span>Contraintes légales &amp; accessibilité</h2>
+    <ul>
+      <li><strong>RGPD :</strong> analytics sans cookie, formulaires avec finalités explicites, registre des traitements, DPA avec les sous-traitants (hébergeur, e-mail, API IA), données du chatbot anonymisées et purgées à 12 mois</li>
+      <li><strong>Cookies :</strong> objectif « zéro bandeau » (aucun cookie non essentiel) ; si un cookie tiers devient nécessaire, bandeau conforme CNIL</li>
+      <li><strong>Mentions légales</strong> et politique de confidentialité complètes (FR/EN)</li>
+      <li><strong>Transparence IA (AI Act) :</strong> le chatbot s'annonce comme système d'IA dès la première interaction</li>
+      <li><strong>Accessibilité :</strong> cible WCAG 2.2 AA (référentiel RGAA) — contrastes, navigation clavier, <code>alt</code> systématiques, formulaires étiquetés, <code>prefers-reduced-motion</code> respecté</li>
+    </ul>
+  </section>
+
+  <section id="s10">
+    <h2><span class="num">10</span>Phasage &amp; budget indicatif</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Lot 1 · Semaines 1–6</span>
+        <h4>Site vitrine + RDV</h4>
+        <p>Design system, accueil, 4 pages services, page activités, méthode, à propos (portraits des fondateurs), contact + Cal.com, pages légales, i18n FR (EN en fin de lot), SEO technique.</p>
+        <p><b>Charge : 20–27 jours-homme</b></p>
+      </div>
+      <div class="card">
+        <span class="tag">Lot 2 · Semaines 7–10</span>
+        <h4>Blog + chatbot IA</h4>
+        <p>Infrastructure MDX, 6 articles de lancement, flux RSS ; chatbot IA (RAG sur le contenu du site, garde-fous, journalisation).</p>
+        <p><b>Charge : 12–18 jours-homme</b></p>
+      </div>
+      <div class="card">
+        <span class="tag">Lot 3 · En continu</span>
+        <h4>Itérations</h4>
+        <p>Études de cas clients, versions EN du blog, A/B tests des CTA, enrichissement du chatbot.</p>
+      </div>
+    </div>
+    <h3>Coûts récurrents estimés</h3>
+    <ul>
+      <li>Hébergement : 5–25 €/mois selon l'hébergeur retenu · Analytics : 0–9 €/mois</li>
+      <li>API Claude (chatbot) : 20–100 €/mois selon trafic · Domaine : ~15 €/an</li>
+    </ul>
+  </section>
+
+  <section id="s11">
+    <h2><span class="num">11</span>Critères de recette</h2>
+    <p>La recette du site est prononcée quand tous les points suivants sont vérifiés :</p>
+    <ul class="check">
+      <li>Toutes les pages du sitemap (§ 4) existent en FR et en EN, sans texte de remplissage</li>
+      <li>Prise de RDV fonctionnelle de bout en bout : réservation test + e-mails de confirmation reçus</li>
+      <li>Chatbot : répond correctement à 20 questions de test sur l'offre, refuse les sujets hors périmètre, propose le RDV, s'annonce comme IA</li>
+      <li>Formulaires : soumission, anti-spam et notifications vérifiés</li>
+      <li>Lighthouse ≥ 90 sur les 4 axes, Core Web Vitals « bon » sur mobile</li>
+      <li>Accessibilité : navigation clavier complète, contrastes AA, lecteur d'écran testé sur les parcours clés</li>
+      <li>SEO : sitemap soumis, données structurées validées (Rich Results Test), <code>hreflang</code> corrects</li>
+      <li>RGPD : aucune requête vers des services non listés au registre, politique de confidentialité en ligne</li>
+      <li>Affichage vérifié sur mobile, tablette et desktop (Chrome, Safari, Firefox, Edge)</li>
+    </ul>
+  </section>
+
+  <footer>
+    Document établi le 16 août 2026 pour IA Doption. Toute évolution du périmètre fait l'objet d'un avenant à ce cahier des charges. Source : <code>docs/cahier-des-charges.md</code>.
+  </footer>
+</main>
