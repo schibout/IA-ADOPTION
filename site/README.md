@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Site IA Doption
 
-## Getting Started
+Site vitrine de l'agence, construit avec Next.js 16 (App Router) et Tailwind CSS v4.
+Les spécifications complètes se trouvent dans [`../docs/cahier-des-charges.md`](../docs/cahier-des-charges.md).
 
-First, run the development server:
+## Commandes
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev     # développement, http://localhost:3000
+npm run build   # build de production
+npm run start   # sert la build
+npm run lint    # ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Depuis la racine du dépôt, `./deploy.sh` enchaîne installation, lint, build et
+tests end-to-end, puis produit l'artefact `.next`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Dossier | Contenu |
+|---|---|
+| `app/` | Les routes. Une page par dossier ; `services/[slug]` génère les 4 pages piliers. |
+| `components/` | Composants du site (`Nav`, `Hero`, `Footer`, `CtaFinal`, `Reveal`). |
+| `components/ui/` | Composants d'interface réutilisables, au format shadcn. |
+| `lib/content.ts` | **Tout le contenu éditorial** : piliers, activités, cas d'usage, méthode, fondateurs, tarifs. |
 
-## Learn More
+Pour modifier un texte, une offre ou un tarif, éditez `lib/content.ts` — les
+pages s'alimentent à cette source unique.
 
-To learn more about Next.js, take a look at the following resources:
+## Direction artistique
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Les jetons de couleur et de typographie sont déclarés dans `app/globals.css`
+via `@theme` : `paper`, `ink`, `green`, `violet`, `mist`. Les polices sont
+Space Grotesk (titres) et Inter (texte), auto-hébergées par `next/font`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Hero WebGL
 
-## Deploy on Vercel
+`components/ui/blackhole-hero-section.tsx` trace un trou noir de Schwarzschild
+par lancer de rayons, en WebGL. Il n'a aucune dépendance externe. Points à
+connaître avant d'y toucher :
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Le disque reprend la palette de la marque via `hotColor` / `midColor` /
+  `coolColor` (voir `components/Hero.tsx`).
+- `steps` et `resolution` sont les deux curseurs de coût ; ils sont déjà réduits
+  sur mobile.
+- Le composant se retire de lui-même si WebGL est indisponible ou si le rendu
+  est logiciel, et respecte `prefers-reduced-motion` en affichant une image fixe.
+- Le titre et les boutons vivent dans le DOM, jamais dans le canevas : la page
+  reste lisible et navigable même sans WebGL.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tests
+
+Les tests end-to-end Playwright sont dans [`../tools/`](../tools) :
+
+```bash
+cd ../tools && npm test
+```

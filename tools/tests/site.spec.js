@@ -130,6 +130,61 @@ test.describe("Conversion", () => {
   });
 });
 
+test.describe("Hero WebGL", () => {
+  test("le canevas est décoratif et le texte reste lisible sans lui", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const canvas = page.locator("section canvas");
+    await expect(canvas).toHaveCount(1);
+    // Purement décoratif : masqué aux lecteurs d'écran.
+    await expect(canvas).toHaveAttribute("aria-hidden", "true");
+    // Le titre et le CTA vivent dans le DOM, pas dans le canevas : ils
+    // restent lisibles même si WebGL est indisponible.
+    await expect(page.locator("h1")).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: /Réserver un appel découverte/ }).first(),
+    ).toBeVisible();
+  });
+
+  test("le hero passe sous la barre de navigation", async ({ page }) => {
+    await page.goto("/");
+    const hero = page.locator("main > section").first();
+    const boite = await hero.boundingBox();
+    // La barre est sticky, donc elle occupe 64 px dans le flux : sans la marge
+    // négative le hero démarrerait à y = 64 et laisserait une bande claire.
+    // Il doit démarrer en haut du document.
+    expect(boite.y).toBeLessThan(10);
+  });
+
+  test("la barre est transparente en haut de l'accueil, solide après défilement", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const fond = () =>
+      page
+        .locator("header")
+        .evaluate((el) => getComputedStyle(el).backgroundColor);
+
+    expect(await fond()).toBe("rgba(0, 0, 0, 0)");
+
+    await page.evaluate(() => window.scrollTo(0, 600));
+    // Le fond s'installe par transition : on attend la valeur, sans supposer
+    // sa durée (le rendu logiciel de headless la ralentit beaucoup).
+    await expect
+      .poll(fond, { timeout: 15_000 })
+      .not.toBe("rgba(0, 0, 0, 0)");
+  });
+
+  test("sur les autres pages la barre est solide d'emblée", async ({ page }) => {
+    await page.goto("/services");
+    const fond = await page
+      .locator("header")
+      .evaluate((el) => getComputedStyle(el).backgroundColor);
+    expect(fond).not.toBe("rgba(0, 0, 0, 0)");
+  });
+});
+
 test.describe("Accessibilité", () => {
   test("la navigation clavier atteint le CTA avec un focus visible", async ({
     page,
