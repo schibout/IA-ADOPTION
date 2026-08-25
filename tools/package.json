@@ -4,10 +4,10 @@
   "private": true,
   "description": "Tests end-to-end et captures d'écran du site IA Doption",
   "scripts": {
-    "test": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:desktop": "playwright test --project=desktop",
-    "test:mobile": "playwright test --project=mobile",
+    "test": "node run-tests.js",
+    "test:ui": "node run-tests.js --ui",
+    "test:desktop": "node run-tests.js --project=desktop",
+    "test:mobile": "node run-tests.js --project=mobile",
     "report": "playwright show-report"
   },
   "license": "UNLICENSED",

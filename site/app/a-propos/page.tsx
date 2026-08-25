@@ -5,7 +5,7 @@ import { fondateurs } from "@/lib/content";
 export const metadata: Metadata = {
   title: "À propos",
   description:
-    "IA Doption réunit un pair du dirigeant et un architecte technique. Notre manifeste : l'IA adoptée, pas subie.",
+    "IAADOPTION réunit un pair du dirigeant et un architecte technique. Notre manifeste : l'IA adoptée, pas subie.",
 };
 
 export default function APropos() {

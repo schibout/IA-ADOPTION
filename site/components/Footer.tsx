@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-3">
         <div>
           <p className="font-display text-lg font-bold text-ink">
-            IA<span className="text-ink"> Doption</span>
+            IAADOPTION
           </p>
           <p className="mt-2 max-w-60 text-sm text-mist">
             L&rsquo;IA adoptée, pas subie. Performance et création de valeur
@@ -64,7 +64,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-line py-4 text-center text-xs text-mist">
-        © {new Date().getFullYear()} IA Doption. Site sans cookie de suivi.
+        © {new Date().getFullYear()} IAADOPTION. Site sans cookie de suivi.
       </div>
     </footer>
   );

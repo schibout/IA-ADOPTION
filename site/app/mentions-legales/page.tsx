@@ -15,7 +15,7 @@ export default function MentionsLegales() {
         <div>
           <h2 className="font-bold text-ink">Éditeur du site</h2>
           <p className="mt-1">
-            IA Doption — [forme juridique, capital, RCS et adresse à compléter
+            IAADOPTION — [forme juridique, capital, RCS et adresse à compléter
             avant mise en ligne]. Contact&nbsp;:{" "}
             <a href={`mailto:${contact.email}`} className="text-ink underline underline-offset-2">
               {contact.email}
@@ -39,7 +39,7 @@ export default function MentionsLegales() {
           <h2 className="font-bold text-ink">Propriété intellectuelle</h2>
           <p className="mt-1">
             L&rsquo;ensemble des contenus de ce site (textes, visuels, logo)
-            est la propriété d&rsquo;IA Doption, sauf mention contraire. Toute
+            est la propriété d&rsquo;IAADOPTION, sauf mention contraire. Toute
             reproduction sans autorisation est interdite.
           </p>
         </div>

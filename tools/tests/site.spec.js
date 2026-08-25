@@ -1,7 +1,22 @@
 const { test, expect } = require("@playwright/test");
 
+/**
+ * Désactive WebGL sur la page : son rendu logiciel (très lent en headless)
+ * sature le thread principal de l'accueil et fait dépasser les timeouts.
+ * À utiliser dans les tests qui passent par l'accueil sans exercer le trou
+ * noir — le composant a un fallback sans WebGL, testé dans « Hero WebGL ».
+ */
+const sansWebGL = (page) =>
+  page.addInitScript(() => {
+    const orig = HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext = function (type, ...args) {
+      if (String(type).startsWith("webgl")) return null;
+      return orig.call(this, type, ...args);
+    };
+  });
+
 const PAGES = [
-  { url: "/", titre: /IA Doption/, h1: /L.IA adoptée/ },
+  { url: "/", titre: /IAADOPTION/, h1: /L.IA adoptée/ },
   { url: "/services", titre: /Services/, h1: /Quatre façons/ },
   { url: "/services/conseil-strategie-ia", titre: /conseil/i, h1: /Audit & conseil/ },
   { url: "/services/agents-ia", titre: /Agents IA/, h1: /Agents IA/ },
@@ -44,6 +59,7 @@ test.describe("Pages", () => {
 
 test.describe("Navigation", () => {
   test("le menu principal mène aux bonnes pages", async ({ page, isMobile }) => {
+    await sansWebGL(page);
     await page.goto("/");
     if (isMobile) {
       await page.getByRole("button", { name: /ouvrir le menu/i }).click();
@@ -57,7 +73,7 @@ test.describe("Navigation", () => {
   test("le logo ramène à l'accueil", async ({ page }) => {
     await page.goto("/methode");
     await page.locator("header").getByRole("link").first().click();
-    await expect(page).toHaveURL(/localhost:4321\/$/);
+    await expect(page).toHaveURL(/localhost:\d+\/$/);
   });
 
   test("les cartes services mènent au détail du pilier", async ({ page }) => {
@@ -191,6 +207,7 @@ test.describe("Accessibilité", () => {
     isMobile,
   }) => {
     test.skip(isMobile, "navigation clavier testée sur desktop");
+    await sansWebGL(page);
     await page.goto("/");
     let trouve = false;
     for (let i = 0; i < 12; i++) {
@@ -225,6 +242,7 @@ test.describe("Accessibilité", () => {
   });
 
   test("le mouvement réduit désactive les animations d'apparition", async ({ page }) => {
+    await sansWebGL(page);
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/");
     const transition = await page

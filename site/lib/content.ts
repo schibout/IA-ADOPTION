@@ -75,7 +75,7 @@ export const activites: Activite[] = [
     format: "2–3 semaines · livrable : feuille de route",
   },
   {
-    nom: "Programme « IA Doption »",
+    nom: "Programme « IAADOPTION »",
     description:
       "Parcours d'adoption accompagné sur 90 jours : un cas d'usage pilote, formation des équipes, mesure du ROI.",
     format: "3 mois · forfait",
@@ -298,8 +298,8 @@ export const fondateurs = [
   {
     nom: "Samir Chibout",
     role: "Cofondateur · Architecture IA & delivery technique",
-    bio: "Quinze ans d'expérience en intégration de systèmes et développement de solutions sur mesure — Salesforce, Talend, MuleSoft, API. Il traduit les cas d'usage identifiés en solutions déployées : agents IA, automatisation de flux, intégrations multi-systèmes. Sa conviction : la technologie doit servir le métier, pas l'inverse.",
-    tags: ["Agents IA", "Intégration SI", "15 ans d'expérience"],
+    bio: "Plus de vingt ans d'expérience en intégration de systèmes et développement de solutions sur mesure — Salesforce, Talend, MuleSoft, API. Il traduit les cas d'usage identifiés en solutions déployées : agents IA, automatisation de flux, intégrations multi-systèmes. Sa conviction : la technologie doit servir le métier, pas l'inverse.",
+    tags: ["Agents IA", "Intégration SI", "20+ ans d'expérience"],
     linkedin: "https://www.linkedin.com/in/samir-chibout/",
     initiales: "SC",
   },

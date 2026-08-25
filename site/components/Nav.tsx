@@ -47,11 +47,7 @@ export default function Nav() {
               clair ? "text-white" : "text-ink"
             }`}
           >
-            IA
-            <span className={clair ? "text-white" : "text-ink"}>
-              {" "}
-              Doption
-            </span>
+            IAADOPTION
           </span>
         </Link>
 

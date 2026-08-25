@@ -17,16 +17,16 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL("https://iaadoption.ai"),
   title: {
-    default: "IA Doption — L'IA adoptée, pas subie",
-    template: "%s · IA Doption",
+    default: "IAADOPTION — L'IA adoptée, pas subie",
+    template: "%s · IAADOPTION",
   },
   description:
     "Agence d'adoption de l'IA pour PME et ETI : audit et conseil en stratégie IA, agents IA, automatisation, SaaS sur mesure. Des résultats mesurables en 30 à 90 jours.",
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: "IA Doption",
-    title: "IA Doption — L'IA adoptée, pas subie",
+    siteName: "IAADOPTION",
+    title: "IAADOPTION — L'IA adoptée, pas subie",
     description:
       "Audit et conseil en stratégie IA, agents IA, automatisation, SaaS sur mesure pour PME et ETI.",
   },
