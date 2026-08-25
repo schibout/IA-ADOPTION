@@ -12,7 +12,7 @@ export default function Methode() {
   return (
     <>
       <section className="mx-auto max-w-6xl px-5 py-16">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-green-deep">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mist">
           La méthode
         </p>
         <h1 className="mt-3 max-w-2xl text-4xl font-bold text-ink md:text-5xl">
@@ -27,9 +27,9 @@ export default function Methode() {
           {etapesMethode.map((e) => (
             <li
               key={e.numero}
-              className="grid gap-3 rounded-lg border border-line bg-white p-7 md:grid-cols-[100px_220px_1fr] md:items-baseline"
+              className="grid gap-3 rounded-lg border border-line bg-paper-2 p-7 md:grid-cols-[100px_220px_1fr] md:items-baseline"
             >
-              <p className="font-display text-3xl font-bold text-violet">
+              <p className="font-display text-3xl font-bold text-mist">
                 {e.numero}
               </p>
               <div>
@@ -57,15 +57,15 @@ export default function Methode() {
             {casUsage.slice(0, 9).map((c) => (
               <div
                 key={c.titre}
-                className="flex h-full flex-col rounded-lg bg-white p-6"
+                className="flex h-full flex-col rounded-lg bg-paper p-6"
               >
-                <p className="text-xs font-medium uppercase tracking-wider text-violet">
+                <p className="text-xs font-medium uppercase tracking-wider text-mist">
                   {c.domaine}
                 </p>
                 <h3 className="mt-2 font-bold text-ink">{c.titre}</h3>
                 <p className="mt-2 flex-1 text-sm text-mist">{c.description}</p>
                 <p className="mt-4 flex items-center justify-between text-sm">
-                  <span className="font-semibold text-green-deep">
+                  <span className="font-semibold text-ink">
                     {c.resultat}
                   </span>
                   <span className="text-mist">{c.delai}</span>

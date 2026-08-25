@@ -60,9 +60,9 @@ export default async function PagePilier({
           {pilier.points.map((point) => (
             <li
               key={point}
-              className="flex items-start gap-3 rounded-lg border border-line bg-white px-5 py-4"
+              className="flex items-start gap-3 rounded-lg border border-line bg-paper-2 px-5 py-4"
             >
-              <span aria-hidden="true" className="mt-0.5 font-bold text-green-deep">
+              <span aria-hidden="true" className="mt-0.5 font-bold text-mist">
                 ✓
               </span>
               <span className="text-sm text-ink">{point}</span>
@@ -79,15 +79,15 @@ export default async function PagePilier({
               {exemples.map((c) => (
                 <div
                   key={c.titre}
-                  className="rounded-lg border border-line bg-white p-6"
+                  className="rounded-lg border border-line bg-paper-2 p-6"
                 >
-                  <p className="text-xs font-medium uppercase tracking-wider text-violet">
+                  <p className="text-xs font-medium uppercase tracking-wider text-mist">
                     {c.domaine}
                   </p>
                   <h3 className="mt-2 font-bold text-ink">{c.titre}</h3>
                   <p className="mt-2 text-sm text-mist">{c.description}</p>
                   <p className="mt-4 flex items-center justify-between text-sm">
-                    <span className="font-semibold text-green-deep">
+                    <span className="font-semibold text-ink">
                       {c.resultat}
                     </span>
                     <span className="text-mist">{c.delai}</span>

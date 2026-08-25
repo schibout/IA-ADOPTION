@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 md:grid-cols-3">
         <div>
           <p className="font-display text-lg font-bold text-ink">
-            IA<span className="text-green-deep"> Doption</span>
+            IA<span className="text-ink"> Doption</span>
           </p>
           <p className="mt-2 max-w-60 text-sm text-mist">
             L&rsquo;IA adoptée, pas subie. Performance et création de valeur

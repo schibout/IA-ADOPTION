@@ -48,7 +48,7 @@ export default function Nav() {
             }`}
           >
             IA
-            <span className={clair ? "text-green" : "text-green-deep"}>
+            <span className={clair ? "text-white" : "text-ink"}>
               {" "}
               Doption
             </span>
@@ -74,7 +74,7 @@ export default function Nav() {
             <Link
               href="/contact"
               className={`rounded-md px-4 py-2 text-sm font-medium transition-opacity hover:opacity-85 ${
-                clair ? "bg-green text-ink" : "bg-ink text-paper"
+                clair ? "bg-paper text-ink" : "bg-ink text-paper"
               }`}
             >
               Réserver un appel

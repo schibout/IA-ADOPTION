@@ -27,7 +27,8 @@ function useNarrow(query = "(max-width: 767px)") {
  * haut sous un voile, trou noir entier dans le tiers bas.
  *
  * Le disque reprend la palette de la marque plutôt que l'orange par défaut :
- * blanc verdi au bord interne, vert de marque au milieu, violet en périphérie.
+ * blanc cassé au bord interne, crème de marque au milieu, gris chaud en
+ * périphérie — le monochrome éditorial de la maquette.
  */
 export default function Hero() {
   const narrow = useNarrow();
@@ -44,9 +45,9 @@ export default function Hero() {
         distance={24}
         elevation={narrow ? -7 : -5.5}
         fov={narrow ? 58 : 42}
-        hotColor="#EAFFF4"
-        midColor="#00D084"
-        coolColor="#3B2FA8"
+        hotColor="#FFFDF6"
+        midColor="#F0EDE6"
+        coolColor="#8A8578"
         doppler={0.35}
         glow={narrow ? 0.85 : 1}
         exposure={0.92}
@@ -55,7 +56,7 @@ export default function Hero() {
       >
         <div className="flex h-full min-h-[calc(88svh+4rem)] items-start px-5 pt-28 sm:px-10 md:min-h-[724px] md:items-center md:pt-16 lg:px-16">
           <div className="max-w-xl">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-green">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-paper/70">
               PME &amp; ETI · France et Europe francophone
             </p>
             <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -74,7 +75,7 @@ export default function Hero() {
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <a
                 href={contact.calendrier}
-                className="rounded-md bg-green px-7 py-3.5 font-medium text-ink transition-opacity hover:opacity-85"
+                className="rounded-md bg-paper px-7 py-3.5 font-medium text-ink transition-opacity hover:opacity-85"
               >
                 Réserver un appel découverte
               </a>

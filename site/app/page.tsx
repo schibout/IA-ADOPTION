@@ -17,7 +17,7 @@ export default function Accueil() {
             ["90 j", "pour des résultats mesurables et prouvés"],
             ["100 %", "des indicateurs définis avant chaque mission"],
           ].map(([n, l]) => (
-            <div key={n} className="border-l-2 border-green pl-5">
+            <div key={n} className="border-l-2 border-paper/25 pl-5">
               <p className="font-display text-4xl font-bold text-paper">{n}</p>
               <p className="mt-1 text-sm text-paper/50">{l}</p>
             </div>
@@ -28,7 +28,7 @@ export default function Accueil() {
       {/* Les 4 piliers */}
       <section className="mx-auto max-w-6xl px-5 py-20">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-green-deep">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mist">
             Nos services
           </p>
           <h2 className="mt-3 max-w-xl text-3xl font-bold text-ink md:text-4xl">
@@ -40,11 +40,11 @@ export default function Accueil() {
             <Reveal key={p.slug}>
               <Link
                 href={`/services/${p.slug}`}
-                className="group block h-full rounded-lg border border-line bg-white p-7 transition-colors hover:border-green-deep"
+                className="group block h-full rounded-lg border border-line bg-paper-2 p-7 transition-colors hover:border-ink"
               >
                 <h3 className="text-xl font-bold text-ink">{p.nom}</h3>
                 <p className="mt-2 text-sm text-mist">{p.accroche}</p>
-                <p className="mt-5 text-sm font-medium text-green-deep">
+                <p className="mt-5 text-sm font-medium text-ink">
                   En savoir plus{" "}
                   <span
                     aria-hidden="true"
@@ -63,7 +63,7 @@ export default function Accueil() {
       <section className="bg-paper-2 px-5 py-20">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-green-deep">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mist">
               Comment ça marche
             </p>
             <h2 className="mt-3 max-w-xl text-3xl font-bold text-ink md:text-4xl">
@@ -73,8 +73,8 @@ export default function Accueil() {
           <ol className="mt-10 grid gap-4 md:grid-cols-4">
             {etapesMethode.map((e) => (
               <Reveal key={e.numero} as="li">
-                <div className="h-full rounded-lg bg-white p-6">
-                  <p className="font-display text-sm font-bold text-violet">
+                <div className="h-full rounded-lg bg-paper p-6">
+                  <p className="font-display text-sm font-bold text-mist">
                     {e.numero}
                   </p>
                   <h3 className="mt-2 text-lg font-bold text-ink">{e.nom}</h3>
@@ -87,7 +87,7 @@ export default function Accueil() {
             ))}
           </ol>
           <Reveal className="mt-8">
-            <Link href="/methode" className="text-sm font-medium text-green-deep">
+            <Link href="/methode" className="text-sm font-medium text-ink">
               Voir la méthode en détail <span aria-hidden="true">→</span>
             </Link>
           </Reveal>
@@ -97,7 +97,7 @@ export default function Accueil() {
       {/* Activités */}
       <section className="mx-auto max-w-6xl px-5 py-20">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-green-deep">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mist">
             Activités IA
           </p>
           <h2 className="mt-3 max-w-xl text-3xl font-bold text-ink md:text-4xl">
@@ -107,10 +107,10 @@ export default function Accueil() {
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {activites.slice(0, 6).map((a) => (
             <Reveal key={a.nom}>
-              <div className="h-full rounded-lg border border-line bg-white p-6">
+              <div className="h-full rounded-lg border border-line bg-paper-2 p-6">
                 <h3 className="font-bold text-ink">{a.nom}</h3>
                 <p className="mt-2 text-sm text-mist">{a.description}</p>
-                <p className="mt-4 text-xs font-medium uppercase tracking-wider text-violet">
+                <p className="mt-4 text-xs font-medium uppercase tracking-wider text-mist">
                   {a.format}
                 </p>
               </div>
@@ -118,7 +118,7 @@ export default function Accueil() {
           ))}
         </div>
         <Reveal className="mt-8">
-          <Link href="/activites" className="text-sm font-medium text-green-deep">
+          <Link href="/activites" className="text-sm font-medium text-ink">
             Voir les 9 activités <span aria-hidden="true">→</span>
           </Link>
         </Reveal>
@@ -128,7 +128,7 @@ export default function Accueil() {
       <section className="bg-paper-2 px-5 py-20">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-green-deep">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mist">
               L&rsquo;équipe fondatrice
             </p>
             <h2 className="mt-3 max-w-xl text-3xl font-bold text-ink md:text-4xl">
@@ -138,9 +138,9 @@ export default function Accueil() {
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {fondateurs.map((f) => (
               <Reveal key={f.nom}>
-                <div className="h-full rounded-lg bg-white p-7">
+                <div className="h-full rounded-lg bg-paper p-7">
                   <div className="flex items-center gap-4">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-ink font-display font-bold text-green">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-ink font-display font-bold text-paper">
                       {f.initiales}
                     </span>
                     <div>
@@ -156,7 +156,7 @@ export default function Accueil() {
             ))}
           </div>
           <Reveal className="mt-8">
-            <Link href="/a-propos" className="text-sm font-medium text-green-deep">
+            <Link href="/a-propos" className="text-sm font-medium text-ink">
               Faire connaissance <span aria-hidden="true">→</span>
             </Link>
           </Reveal>

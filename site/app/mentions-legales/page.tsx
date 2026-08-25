@@ -17,7 +17,7 @@ export default function MentionsLegales() {
           <p className="mt-1">
             IA Doption — [forme juridique, capital, RCS et adresse à compléter
             avant mise en ligne]. Contact&nbsp;:{" "}
-            <a href={`mailto:${contact.email}`} className="text-green-deep">
+            <a href={`mailto:${contact.email}`} className="text-ink underline underline-offset-2">
               {contact.email}
             </a>
             .

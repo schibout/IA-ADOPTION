@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <section className="mx-auto max-w-6xl px-5 py-16">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-green-deep">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mist">
         Contact
       </p>
       <h1 className="mt-3 max-w-2xl text-4xl font-bold text-ink md:text-5xl">
@@ -33,7 +33,7 @@ export default function Contact() {
           </p>
           <a
             href={contact.calendrier}
-            className="mt-6 inline-block rounded-md bg-green px-7 py-3.5 font-medium text-ink transition-opacity hover:opacity-85"
+            className="mt-6 inline-block rounded-md bg-paper px-7 py-3.5 font-medium text-ink transition-opacity hover:opacity-85"
           >
             Choisir un créneau
           </a>
@@ -43,7 +43,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="rounded-lg border border-line bg-white p-8">
+        <div className="rounded-lg border border-line bg-paper-2 p-8">
           <h2 className="text-xl font-bold text-ink">Nous écrire</h2>
           <p className="mt-3 text-sm text-mist">
             Une question, un projet à cadrer, une demande de formation ? Écrivez-nous — nous répondons sous 24 h ouvrées.
@@ -51,7 +51,7 @@ export default function Contact() {
           <p className="mt-6">
             <a
               href={`mailto:${contact.email}`}
-              className="font-medium text-green-deep hover:underline"
+              className="font-medium text-ink underline underline-offset-2"
             >
               {contact.email}
             </a>

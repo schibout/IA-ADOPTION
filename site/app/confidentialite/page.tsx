@@ -39,7 +39,7 @@ export default function Confidentialite() {
             Conformément au RGPD, vous pouvez demander l&rsquo;accès, la
             rectification ou la suppression de vos données à tout moment en
             écrivant à{" "}
-            <a href={`mailto:${contact.email}`} className="text-green-deep">
+            <a href={`mailto:${contact.email}`} className="text-ink underline underline-offset-2">
               {contact.email}
             </a>
             .

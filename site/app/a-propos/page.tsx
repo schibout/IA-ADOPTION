@@ -12,7 +12,7 @@ export default function APropos() {
   return (
     <>
       <section className="mx-auto max-w-6xl px-5 py-16">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-green-deep">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mist">
           À propos
         </p>
         <h1 className="mt-3 max-w-2xl text-4xl font-bold text-ink md:text-5xl">
@@ -29,10 +29,10 @@ export default function APropos() {
           {fondateurs.map((f) => (
             <article
               key={f.nom}
-              className="flex h-full flex-col rounded-lg border border-line bg-white p-8"
+              className="flex h-full flex-col rounded-lg border border-line bg-paper-2 p-8"
             >
               <div className="flex items-center gap-4">
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-ink font-display text-lg font-bold text-green">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-ink font-display text-lg font-bold text-paper">
                   {f.initiales}
                 </span>
                 <div>
@@ -57,7 +57,7 @@ export default function APropos() {
                 href={f.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 text-sm font-medium text-green-deep hover:underline"
+                className="mt-6 text-sm font-medium text-ink hover:underline"
               >
                 Profil LinkedIn ↗
               </a>
@@ -68,7 +68,7 @@ export default function APropos() {
 
       <section className="bg-ink px-5 py-16">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-green">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-paper/60">
             Notre manifeste
           </p>
           <blockquote className="mt-5 font-display text-2xl font-bold text-paper md:text-3xl">

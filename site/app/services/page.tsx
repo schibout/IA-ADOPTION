@@ -13,7 +13,7 @@ export default function Services() {
   return (
     <>
       <section className="mx-auto max-w-6xl px-5 py-16">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-green-deep">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mist">
           Services
         </p>
         <h1 className="mt-3 max-w-2xl text-4xl font-bold text-ink md:text-5xl">
@@ -30,10 +30,10 @@ export default function Services() {
             <Link
               key={p.slug}
               href={`/services/${p.slug}`}
-              className="group grid gap-4 rounded-lg border border-line bg-white p-8 transition-colors hover:border-green-deep md:grid-cols-[1fr_2fr]"
+              className="group grid gap-4 rounded-lg border border-line bg-paper-2 p-8 transition-colors hover:border-ink md:grid-cols-[1fr_2fr]"
             >
               <div>
-                <p className="font-display text-sm font-bold text-violet">
+                <p className="font-display text-sm font-bold text-mist">
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <h2 className="mt-1 text-2xl font-bold text-ink">{p.nom}</h2>
@@ -41,7 +41,7 @@ export default function Services() {
               <div>
                 <p className="font-medium text-ink">{p.accroche}</p>
                 <p className="mt-2 text-sm text-mist">{p.description}</p>
-                <p className="mt-4 text-sm font-medium text-green-deep">
+                <p className="mt-4 text-sm font-medium text-ink">
                   En savoir plus{" "}
                   <span
                     aria-hidden="true"

@@ -13,7 +13,7 @@ export default function CtaFinal() {
         </p>
         <a
           href={contact.calendrier}
-          className="mt-8 inline-block rounded-md bg-green px-8 py-3.5 font-medium text-ink transition-opacity hover:opacity-85"
+          className="mt-8 inline-block rounded-md bg-paper px-8 py-3.5 font-medium text-ink transition-opacity hover:opacity-85"
         >
           Réserver un appel découverte
         </a>
